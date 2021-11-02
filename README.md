@@ -27,6 +27,9 @@
 ## Contatos 📱:
 <div>
  <p align="center"> 
-   
+        <h3>RickkCastro (Henrique Castro)</h3>
+        <a><img width="60" height="50" alt="Author-Email" src="https://cdn.discordapp.com/attachments/905060383922978826/905068860334538762/email.png"></a>
+
+        <h3>Brenaki (Victor Cerqueira)</h3>
  </p>
 </div>
