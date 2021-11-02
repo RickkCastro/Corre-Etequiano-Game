@@ -23,3 +23,10 @@
     &nbsp;
   <a href="https://www.aseprite.org" target="_blank"><img align="center" alt="ETEC-Ase" height="40" width="40" src="https://cdn.discordapp.com/attachments/905060383922978826/905060451027681281/429789.png"></a>
 </div>
+
+## Total de visitas
+<div>
+ <p align="center"> 
+   <img alingn="center" src="https://profile-counter.glitch.me/RickkCastro/Corre-Etequiano-Game/blob/main/README.md/count.svg" />
+ </p>
+</div>
