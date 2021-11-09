@@ -164,7 +164,7 @@ public class DropdownAttributeDrawer : PropertyDrawer
                     return i;
                 }
             }
-        }catch(Exception e)
+        }catch
         {
         }
         return -1;
