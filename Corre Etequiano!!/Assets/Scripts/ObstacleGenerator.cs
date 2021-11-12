@@ -15,18 +15,15 @@ public class ObstacleGenerator : MonoBehaviour
 
     public List<Obstacle> ObstaclesList;
 
-    //Speed
-    public float MinSpeed;
-    public float MaxSpeed;
-    public float SpeedMultiplier; //Valor q a speed aumenta a cada segundo
-    public float CurrentSpeed;
-
     //time
+    [Header("Time")]
     public float MinGenerationTime;
     public float MaxGenerationTime;
     public float DecreaseGenerationTime; //Valor q o tempo de geracao maximo deminui a cada segundo
+    public float MargemTime;
 
     public int UnlockSky;
+    public float InicialDelay;
 
     private GameObject CurrentObstacle;
     private Vector2 InsPosition;
@@ -34,7 +31,6 @@ public class ObstacleGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentSpeed = MinSpeed; //Velocidade atual = a minima
         StartCoroutine(GenerateObstacle()); //Gerar obstacles
         StartCoroutine(Every1Second()); //A cada segundo
     }
@@ -45,12 +41,7 @@ public class ObstacleGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); //Esperar um segundo
 
-            if (CurrentSpeed < MaxSpeed) //Se a velocidade atual for menor q a velocidade maxima
-            {
-                CurrentSpeed += SpeedMultiplier; //Aumentar velocidade
-            }
-
-            if(MaxGenerationTime > MinGenerationTime + 0.5f) //Se o tempo max for maior q o tempo min + 0.5s
+            if(MaxGenerationTime > MinGenerationTime + MargemTime) //Se o tempo max for maior q o tempo min + 0.5s
             {
                 MaxGenerationTime -= DecreaseGenerationTime; //Diminuir tempo maximo
             }
@@ -59,6 +50,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     IEnumerator GenerateObstacle() //Gerar obstacles
     {
+        yield return new WaitForSeconds(InicialDelay);
         while (true) //loop infinito
         {
             float RandomTime = Random.Range(MinGenerationTime, MaxGenerationTime); //Um tempo aleatorio para gerar
@@ -82,13 +74,11 @@ public class ObstacleGenerator : MonoBehaviour
             {
                 CurrentObstacle = ObstaclesList[0].ObstacleGO;
                 InsPosition = new Vector2(transform.position.x, ObstaclesList[0].PositionY);
-                Debug.Log("foi");
             }
 
             UnlockSky--;
 
             GameObject Ins = Instantiate(CurrentObstacle, InsPosition, transform.rotation);
-            Ins.GetComponent<ObstacleScript>().obstacleGenerator = this;
         }
     }
 }

@@ -8,6 +8,9 @@ TagManager:
   - finishLine
   - Obstacle
   - PlayerLife
+  - Item
+  - PlayerAmmu
+  - Alcohol
   layers:
   - Default
   - TransparentFX
