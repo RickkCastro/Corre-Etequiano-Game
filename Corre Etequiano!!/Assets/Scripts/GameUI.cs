@@ -5,49 +5,32 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-    public List<Sprite> MaskSprites;
-    public List<Sprite> AlcoholSprites;
+    //Codigo para cuidar das imagens de contagem de vida e alccohol
 
-    public int CurrentMask;
-    public int CurrentAlcohol;
+    public List<Sprite> MaskSprites; //Lista de sprites da Ui de mascaras
+    public List<Sprite> AlcoholSprites; //Lista de sprites da Ui de alcohol
 
-    public Sprite ImgMask;
-    public Sprite ImgAlcohol;
+    private Image MaskUI; //UI da mascara
+    private Image AlcoholUI; //Ui do Alcohol
 
-    public static GameUI instance;
+    public static GameUI instance; 
     private void Awake()
     {
         instance = this;
-        ImgMask = MaskSprites[CurrentMask];
+        MaskUI = GameObject.FindGameObjectWithTag("PlayerLife").GetComponent<Image>();
+        AlcoholUI = GameObject.FindGameObjectWithTag("PlayerAmmu").GetComponent<Image>();
+
+        MaskUI.sprite = MaskSprites[MaskSprites.Count -1]; //Colocar mascara inicial
+        AlcoholUI.sprite = AlcoholSprites[AlcoholSprites.Count -1]; //Colocar alcohol inicial
     }
 
-    public void MoreMask()
+    public void UpdateMask(int Mask)
     {
-        if(CurrentMask > 0) //0, 1, 2
-        {
-            CurrentMask--;
-            ImgMask = MaskSprites[CurrentMask];
-        }
+        MaskUI.sprite = MaskSprites[Mask];
     }
 
-    public void LessMask()
+    public void UpdateAlcohol(int AlcolholAmmu)
     {
-        CurrentMask++;
-        ImgMask = MaskSprites[CurrentMask];
-    }
-
-    public void MoreAlcohol()
-    {
-        if (CurrentAlcohol > 0) //0, 1, 2
-        {
-            CurrentAlcohol--;
-            ImgAlcohol = AlcoholSprites[CurrentAlcohol];
-        }
-    }
-
-    public void LessAlcohol()
-    {
-        CurrentAlcohol++;
-        ImgAlcohol = AlcoholSprites[CurrentAlcohol];
+        AlcoholUI.sprite = AlcoholSprites[AlcolholAmmu];
     }
 }

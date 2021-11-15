@@ -8,34 +8,26 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public float JumpForce; //Força do pulo
-    public int Life; //Quantida de vida
-    public int AlcoholAmmu;
-    public GameObject Alcohol;
+    public int Life; //Quantidade de vida
+    public int AlcoholAmmu; //Quantidade de alcohol do player
+    public GameObject Alcohol; //Tiro de Alcohol
 
     private bool isGrounded = false; //Se o player esta tocando no chao
 
-    private Rigidbody2D RB;
-    private Transform hand;
-
-    private Image MaskUI;
-    private Image AlcoholUI;
+    private Rigidbody2D RB; 
+    private Transform hand; //Mao onde items sao criados na frente do player
 
     // Start is called before the first frame update
     void Awake()
     {
-        MaskUI = GameObject.FindGameObjectWithTag("PlayerLife").GetComponent<Image>();
-        AlcoholUI = GameObject.FindGameObjectWithTag("PlayerAmmu").GetComponent<Image>();
-
-        MaskUI.sprite = GameUI.instance.ImgMask;
-
-        RB = GetComponent<Rigidbody2D>();
-        hand = transform.GetChild(0);
+        RB = GetComponent<Rigidbody2D>(); //Pegar ridgbody
+        hand = transform.GetChild(0); //Pegar mao
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) //Pular
+        if (Input.GetKey(KeyCode.Space)) //Pular, apertar espaco
         {
             if (isGrounded) //se o player estiver no chao
             {
@@ -44,26 +36,24 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) //Atirar
+        if (Input.GetKeyDown(KeyCode.E)) //Atirar, apertar e
         {
-            if(AlcoholAmmu > 0)
+            if(AlcoholAmmu > 0) //Se a municao n for 0
             {
-                GameObject ins = Instantiate(Alcohol, hand.position, hand.rotation);
-                AlcoholAmmu--;
-                GameUI.instance.LessAlcohol();
-                AlcoholUI.sprite = GameUI.instance.ImgAlcohol;
+                GameObject ins = Instantiate(Alcohol, hand.position, hand.rotation); //criar tiro
+                AlcoholAmmu--; //Diminuir municao
+                GameUI.instance.UpdateAlcohol(AlcoholAmmu);
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) //Colisoes
     {
         if (collision.gameObject.CompareTag("Obstacle")) //Com obstaculo
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); //Destruir obstacle
             Life--; //Diminuir vida
-            GameUI.instance.LessMask();
-            MaskUI.sprite = GameUI.instance.ImgMask;
+            GameUI.instance.UpdateMask(Life);
 
             if (Life < 1) //Caso a vida seja menor q 1
             {
@@ -71,16 +61,16 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("Item")) //Com obstaculo
+        if (collision.gameObject.CompareTag("Item")) //Com Item
         {
-            ItemEffect(collision.gameObject.GetComponent<ItemScript>().ItemType);
-            Destroy(collision.gameObject);
+            ItemEffect(collision.gameObject.GetComponent<ItemScript>().ItemType); //Ativar o efeito do item correspondente 
+            Destroy(collision.gameObject); //Destruir item
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //Colisao com o chao
     {
-        if (collision.gameObject.CompareTag("Ground")) //Com o chao
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true; //mudar bool
         }
@@ -88,30 +78,28 @@ public class Player : MonoBehaviour
 
     private void Death() //Morrer
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0); //Recarregar cena
     }
 
-    private void ItemEffect(string ItemType)
+    private void ItemEffect(string ItemType) //Efeitos dos itens
     {
-        Debug.Log(ItemType);
+        //Debug.Log(ItemType);
 
-        if(ItemType == "LifeMask")
+        if(ItemType == "LifeMask") //Mascara
         {
-            if (Life < 3)
+            if (Life < 3) //Se a vida for menor q 3
             {
-                Life++;
-                GameUI.instance.MoreMask();
-                MaskUI.sprite = GameUI.instance.ImgMask;
+                Life++; //Aumentar vida
+                GameUI.instance.UpdateMask(Life);
             }
         }
 
-        if (ItemType == "AlcoholAmmu")
+        if (ItemType == "AlcoholAmmu") //Alcohol
         {
-            if (AlcoholAmmu < 3)
+            if (AlcoholAmmu < 3) //Se for menor q 3
             {
-                AlcoholAmmu++;
-                GameUI.instance.MoreAlcohol();
-                AlcoholUI.sprite = GameUI.instance.ImgAlcohol;
+                AlcoholAmmu++; //Aumentar alcohol
+                GameUI.instance.UpdateAlcohol(AlcoholAmmu);
             }
         }
     }

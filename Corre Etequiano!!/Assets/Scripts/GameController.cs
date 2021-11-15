@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     public float MinSpeed;
     public float MaxSpeed;
     public float SpeedMultiplier; //Valor q a speed aumenta a cada segundo
-    public float CurrentSpeed;
+    public float CurrentSpeed; //Velocidade atual do jogo
 
     public static GameController instance;
 
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        CurrentSpeed = MinSpeed;
+        CurrentSpeed = MinSpeed; //Colocar velocidade minima
 
         StartCoroutine(Timer()); //Comecar timer
         StartCoroutine(Every1Second()); //AumentarVelocidade

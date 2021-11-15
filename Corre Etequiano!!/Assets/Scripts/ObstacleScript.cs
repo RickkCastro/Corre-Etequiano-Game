@@ -12,28 +12,22 @@ public class ObstacleScript : MonoBehaviour
 
     private void FixedUpdate() //A todo momento
     {
-        transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Obstaculo anda para a esquerda
+        if(ObstacleType == "Sky")
+            transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed * 2) * Time.deltaTime); //Obstaculo anda para a esquerda
+        else
+            transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Obstaculo anda para a esquerda
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("finishLine")) //Destruir obstaculo
-        {
-            Destroy(this.gameObject);
-        }
+        Destroy(gameObject, 10f); //Destruir objeto
+    }
 
-        if (collision.gameObject.CompareTag("Obstacle"))
+    private void OnTriggerEnter2D(Collider2D collision) //Colisoes
+    {
+        if (collision.gameObject.CompareTag("Obstacle")) //Se um obstaculo colidir com outro obstaculo, destruir um
         {
             Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("Alcohol"))
-        {
-            if(ObstacleType == "Covid-19")
-            {
-                Destroy(gameObject);
-                Destroy(collision.gameObject);
-            }
         }
     }
 }
