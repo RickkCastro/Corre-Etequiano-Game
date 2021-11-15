@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2362879688450229945}
   - component: {fileID: 2362879688450229946}
   - component: {fileID: 4403468931260345917}
+  - component: {fileID: 9136753703412606513}
   m_Layer: 0
   m_Name: LifeMask
   m_TagString: Item
@@ -128,6 +129,27 @@ MonoBehaviour:
   - Vaccine
   - AlcoholAmmu
   ItemType: LifeMask
+--- !u!50 &9136753703412606513
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362879688450229947}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &6691007520461297073
 GameObject:
   m_ObjectHideFlags: 0

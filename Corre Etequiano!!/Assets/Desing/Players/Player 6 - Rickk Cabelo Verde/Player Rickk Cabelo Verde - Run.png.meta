@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 8c06ae0df7c13504fa6a9084e89696bc
+guid: 2726000256b78da4d8cf7366f11563de
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6127526635577253814
-    second: Player 1 - Run_0
+      213: 7937469597204189471
+    second: Player Rickk Cabelo Verde - Run_0
   - first:
-      213: -8502170028171641201
-    second: Player 1 - Run_1
+      213: 8682299356311285085
+    second: Player Rickk Cabelo Verde - Run_1
   - first:
-      213: 2936590723204498479
-    second: Player 1 - Run_2
+      213: 2922931963507313131
+    second: Player Rickk Cabelo Verde - Run_2
   - first:
-      213: -7886893852902043254
-    second: Player 1 - Run_3
+      213: 1600867486838577967
+    second: Player Rickk Cabelo Verde - Run_3
   - first:
-      213: -3828239116553013682
-    second: Player 1 - Run_4
+      213: -1861990587726822833
+    second: Player Rickk Cabelo Verde - Run_4
   - first:
-      213: 1923753483587277438
-    second: Player 1 - Run_5
+      213: 3538290649742968479
+    second: Player Rickk Cabelo Verde - Run_5
   - first:
-      213: -5064519190698471772
-    second: Player 1 - Run_6
+      213: -3013457292701252338
+    second: Player Rickk Cabelo Verde - Run_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +136,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player 1 - Run_0
+      name: Player Rickk Cabelo Verde - Run_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1191dc4b8e872e60800000000000000
+      internalID: 7937469597204189471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Rickk Cabelo Verde - Run_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d69868349bd7870800000000000000
+      internalID: 8682299356311285085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Rickk Cabelo Verde - Run_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be90d7b6227509820800000000000000
+      internalID: 2922931963507313131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Rickk Cabelo Verde - Run_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b5c7d5f7c673610800000000000000
+      internalID: 1600867486838577967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Rickk Cabelo Verde - Run_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f420c6bfc61e826e0800000000000000
+      internalID: -1861990587726822833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Rickk Cabelo Verde - Run_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96040a69988a1130800000000000000
+      internalID: 3538290649742968479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Rickk Cabelo Verde - Run_6
       rect:
         serializedVersion: 2
         x: 0
@@ -150,134 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a406cae6df6a6faa0800000000000000
-      internalID: -6127526635577253814
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player 1 - Run_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f8e3bd2e769320a80800000000000000
-      internalID: -8502170028171641201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player 1 - Run_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f24cf4b34bdd0c820800000000000000
-      internalID: 2936590723204498479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player 1 - Run_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a81df8cc3df1c8290800000000000000
-      internalID: -7886893852902043254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player 1 - Run_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e463a9e6ecc5fdac0800000000000000
-      internalID: -3828239116553013682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player 1 - Run_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e72d3a0d99b82ba10800000000000000
-      internalID: 1923753483587277438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player 1 - Run_6
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4aec44801a637b9b0800000000000000
-      internalID: -5064519190698471772
+      spriteID: e054bbaee8c0e26d0800000000000000
+      internalID: -3013457292701252338
       vertices: []
       indices: 
       edges: []

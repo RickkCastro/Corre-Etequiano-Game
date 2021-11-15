@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D RB; 
     private Transform hand; //Mao onde items sao criados na frente do player
+    public GameObject VaccineShield;
 
     // Start is called before the first frame update
     void Awake()
@@ -101,6 +102,12 @@ public class Player : MonoBehaviour
                 AlcoholAmmu++; //Aumentar alcohol
                 GameUI.instance.UpdateAlcohol(AlcoholAmmu);
             }
+        }
+
+        if (ItemType == "Vaccine") //Vaccine
+        {
+            VaccineShield.SetActive(true);
+            VaccineShield.GetComponent<VaccineShieldScript>().ActivateShield();
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2200493269990146145}
   - component: {fileID: 2200493269990146142}
   - component: {fileID: 952250928705993029}
+  - component: {fileID: -964607244184975143}
   m_Layer: 0
   m_Name: VaccinePower
   m_TagString: Item
@@ -128,6 +129,27 @@ MonoBehaviour:
   - Vaccine
   - AlcoholAmmu
   ItemType: Vaccine
+--- !u!50 &-964607244184975143
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2200493269990146143}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &3756738048458327001
 GameObject:
   m_ObjectHideFlags: 0

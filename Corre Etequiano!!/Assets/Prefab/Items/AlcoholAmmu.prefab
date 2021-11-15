@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5177414669479154021}
   - component: {fileID: 5177414669479154022}
   - component: {fileID: 6306463553475066960}
+  - component: {fileID: -8203525420897800441}
   m_Layer: 0
   m_Name: AlcoholAmmu
   m_TagString: Item
@@ -128,6 +129,27 @@ MonoBehaviour:
   - Vaccine
   - AlcoholAmmu
   ItemType: AlcoholAmmu
+--- !u!50 &-8203525420897800441
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177414669479154023}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &7482138394200402642
 GameObject:
   m_ObjectHideFlags: 0
