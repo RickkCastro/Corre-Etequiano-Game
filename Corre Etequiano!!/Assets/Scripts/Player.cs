@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
 
     private void Death() //Morrer
     {
-        SceneManager.LoadScene(0); //Recarregar cena
+        SceneManager.LoadScene("GameScene");
     }
 
     private void ItemEffect(string ItemType) //Efeitos dos itens
