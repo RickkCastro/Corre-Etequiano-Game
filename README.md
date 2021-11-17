@@ -2,7 +2,7 @@
 
 <div>
 <h2>Desenvolvedora:</h2>
-    <p style="font-family:"Segoe UI",font-weight:"Bold";">GreenCube.dev</p>
+    <p style="font-family:"Segoe UI",font-weight:"Bold"">GreenCube.dev</p>
 </div>
 
 ## Motivo do Jogo 🤷:
