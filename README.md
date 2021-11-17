@@ -1,5 +1,13 @@
 # Corre-Etequiano-Game
 
+## Link do Game 🕹️:
+
+<div>
+<a href="https://rickkcastro.itch.io/corre-etequiano">
+        Corre Etequiano!!
+    </a>
+</div>
+
 ## Motivo do Jogo 🤷:
 <div>
     Esse jogo está sendo criado para ser apresentado no Sarau da Escola Etec Taboão da Serra.<br>
