@@ -39,6 +39,14 @@
     <a href="https://www.aseprite.org" target="_blank"><img align="center" alt="ETEC-Ase" height="40" width="40" src="https://cdn.discordapp.com/attachments/905060383922978826/905060451027681281/429789.png"></a>
 </div>
 
+# Link do Game 🕹️:
+
+<div>
+<a href="https://rickkcastro.itch.io/corre-etequiano">
+        Corre Etequiano!!
+    </a>
+</div>
+
 ## Contatos 📱:
 <div>
 <p align="center"> 
@@ -49,10 +57,3 @@
  </p>
 </div>
 
-## Link do Game 🕹️:
-
-<div>
-<a href="https://rickkcastro.itch.io/corre-etequiano">
-        Corre Etequiano!!
-    </a>
-</div>
