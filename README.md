@@ -2,7 +2,7 @@
 
 <div>
 <h2>Desenvolvedora:</h2>
-    **GreenCube.dev**
+ GreenCube.dev 
 </div>
 
 ## Motivo do Jogo 🤷:
