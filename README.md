@@ -1,13 +1,5 @@
 # Corre-Etequiano-Game
 
-## Link do Game 🕹️:
-
-<div>
-<a href="https://rickkcastro.itch.io/corre-etequiano">
-        Corre Etequiano!!
-    </a>
-</div>
-
 ## Motivo do Jogo 🤷:
 <div>
     Esse jogo está sendo criado para ser apresentado no Sarau da Escola Etec Taboão da Serra.<br>
@@ -55,4 +47,12 @@
         <h3>Brenaki (Victor Cerqueira)</h3>
         <a href="mailto:victor.legat.cerqueira@gmail.com" target="_blank"><img width="50" height="40" alt="Author-Email-BV" src="https://cdn.discordapp.com/attachments/905060383922978826/905068860334538762/email.png"></a>
  </p>
+</div>
+
+## Link do Game 🕹️:
+
+<div>
+<a href="https://rickkcastro.itch.io/corre-etequiano">
+        Corre Etequiano!!
+    </a>
 </div>
