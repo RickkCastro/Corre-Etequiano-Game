@@ -1,5 +1,10 @@
 # Corre-Etequiano-Game
 
+<div>
+<h2>Desenvolvedora:</h2>
+    <p>GreenCube.dev</p>
+</div>
+
 ## Motivo do Jogo 🤷:
 <div>
     Esse jogo está sendo criado para ser apresentado no Sarau da Escola Etec Taboão da Serra.<br>
