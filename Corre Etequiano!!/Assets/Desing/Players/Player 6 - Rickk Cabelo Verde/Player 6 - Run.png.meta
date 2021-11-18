@@ -1,28 +1,49 @@
 fileFormatVersion: 2
-guid: 53094c13fc83e7a44a0f72ea8982d484
+guid: 2726000256b78da4d8cf7366f11563de
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2625120725223766023
-    second: Player 5 - Rickk Cabelo Azul - Run_0
+      213: 7937469597204189471
+    second: Player Rickk Cabelo Verde - Run_0
   - first:
-      213: 4349691737282399096
-    second: Player 5 - Rickk Cabelo Azul - Run_1
+      213: 8682299356311285085
+    second: Player Rickk Cabelo Verde - Run_1
   - first:
-      213: -7640348919899297111
-    second: Player 5 - Rickk Cabelo Azul - Run_2
+      213: 2922931963507313131
+    second: Player Rickk Cabelo Verde - Run_2
   - first:
-      213: -7429186095407364692
-    second: Player 5 - Rickk Cabelo Azul - Run_3
+      213: 1600867486838577967
+    second: Player Rickk Cabelo Verde - Run_3
   - first:
-      213: 7053707860650763253
-    second: Player 5 - Rickk Cabelo Azul - Run_4
+      213: -1861990587726822833
+    second: Player Rickk Cabelo Verde - Run_4
   - first:
-      213: 7209187705558250630
-    second: Player 5 - Rickk Cabelo Azul - Run_5
+      213: 3538290649742968479
+    second: Player Rickk Cabelo Verde - Run_5
   - first:
-      213: 5794187612052178242
-    second: Player 5 - Rickk Cabelo Azul - Run_6
+      213: -3013457292701252338
+    second: Player Rickk Cabelo Verde - Run_6
+  - first:
+      213: 3000356583325653969
+    second: Player 6 - Run_0
+  - first:
+      213: -1313063463512174527
+    second: Player 6 - Run_1
+  - first:
+      213: 7790048664117492761
+    second: Player 6 - Run_2
+  - first:
+      213: -6899338277752212072
+    second: Player 6 - Run_3
+  - first:
+      213: -1201769524667457872
+    second: Player 6 - Run_4
+  - first:
+      213: -7146620463455313411
+    second: Player 6 - Run_5
+  - first:
+      213: -7175779073960222984
+    second: Player 6 - Run_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -136,7 +157,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player 5 - Rickk Cabelo Azul - Run_0
+      name: Player 6 - Run_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7087a7f146d4e6420800000000000000
-      internalID: 2625120725223766023
+      spriteID: 1db51ac7a6863a920800000000000000
+      internalID: 3000356583325653969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player 5 - Rickk Cabelo Azul - Run_1
+      name: Player 6 - Run_1
       rect:
         serializedVersion: 2
         x: 16
@@ -171,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87b4b23e6953d5c30800000000000000
-      internalID: 4349691737282399096
+      spriteID: 14010d1acbf07cde0800000000000000
+      internalID: -1313063463512174527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player 5 - Rickk Cabelo Azul - Run_2
+      name: Player 6 - Run_2
       rect:
         serializedVersion: 2
         x: 32
@@ -192,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9aaec5d332708f590800000000000000
-      internalID: -7640348919899297111
+      spriteID: 91cbabf8cffcb1c60800000000000000
+      internalID: 7790048664117492761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player 5 - Rickk Cabelo Azul - Run_3
+      name: Player 6 - Run_3
       rect:
         serializedVersion: 2
         x: 0
@@ -213,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca509f49b9a36e890800000000000000
-      internalID: -7429186095407364692
+      spriteID: 895f2510460a040a0800000000000000
+      internalID: -6899338277752212072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player 5 - Rickk Cabelo Azul - Run_4
+      name: Player 6 - Run_4
       rect:
         serializedVersion: 2
         x: 16
@@ -234,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f328775dedc3e160800000000000000
-      internalID: 7053707860650763253
+      spriteID: 0be5e4c0cf4725fe0800000000000000
+      internalID: -1201769524667457872
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player 5 - Rickk Cabelo Azul - Run_5
+      name: Player 6 - Run_5
       rect:
         serializedVersion: 2
         x: 32
@@ -255,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 684b9e4b50e2c0460800000000000000
-      internalID: 7209187705558250630
+      spriteID: df1653b8d8a12dc90800000000000000
+      internalID: -7146620463455313411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player 5 - Rickk Cabelo Azul - Run_6
+      name: Player 6 - Run_6
       rect:
         serializedVersion: 2
         x: 0
@@ -276,8 +297,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 245c65a2fe6196050800000000000000
-      internalID: 5794187612052178242
+      spriteID: 8fe5bed73f28a6c90800000000000000
+      internalID: -7175779073960222984
       vertices: []
       indices: 
       edges: []

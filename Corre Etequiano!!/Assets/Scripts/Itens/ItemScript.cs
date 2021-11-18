@@ -12,7 +12,7 @@ public class ItemScript : MonoBehaviour
 
     private void Update() //A todo momento
     {
-        transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed +3) * Time.deltaTime); //Item anda para a esquerda
+        transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Item anda para a esquerda
     }
 
     private void Start()

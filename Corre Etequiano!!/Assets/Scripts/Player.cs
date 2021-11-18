@@ -18,10 +18,15 @@ public class Player : MonoBehaviour
     private Transform hand; //Mao onde items sao criados na frente do player
     public GameObject VaccineShield;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Awake()
     {
         RB = GetComponent<Rigidbody2D>(); //Pegar ridgbody
+        anim = GetComponent<Animator>();
+        anim.SetInteger("IdPlayer", PlayerPrefs.GetInt("IdPlayer", 0));
+
         hand = transform.GetChild(0); //Pegar mao
     }
 
@@ -30,21 +35,31 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) //Pular, apertar espaco
         {
-            if (isGrounded) //se o player estiver no chao
-            {
-                isGrounded = false;
-                RB.AddForce(Vector2.up * JumpForce); //pulo
-            }
+            Pular();
         }
 
         if (Input.GetKeyDown(KeyCode.E)) //Atirar, apertar e
         {
-            if(AlcoholAmmu > 0) //Se a municao n for 0
-            {
-                GameObject ins = Instantiate(Alcohol, hand.position, hand.rotation); //criar tiro
-                AlcoholAmmu--; //Diminuir municao
-                GameUI.instance.UpdateAlcohol(AlcoholAmmu);
-            }
+            ShotAlcohol();
+        }
+    }
+
+    public void Pular()
+    {
+        if (isGrounded) //se o player estiver no chao
+        {
+            isGrounded = false;
+            RB.AddForce(Vector2.up * JumpForce); //pulo
+        }
+    }
+
+    public void ShotAlcohol()
+    {
+        if (AlcoholAmmu > 0) //Se a municao n for 0
+        {
+            GameObject ins = Instantiate(Alcohol, hand.position, hand.rotation); //criar tiro
+            AlcoholAmmu--; //Diminuir municao
+            GameUI.instance.UpdateAlcohol(AlcoholAmmu);
         }
     }
 
@@ -79,7 +94,7 @@ public class Player : MonoBehaviour
 
     private void Death() //Morrer
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Menu");
     }
 
     private void ItemEffect(string ItemType) //Efeitos dos itens
