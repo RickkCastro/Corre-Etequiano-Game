@@ -12,15 +12,12 @@ public class ObstacleScript : MonoBehaviour
 
     private void Update() //A todo momento
     {
-        if(ObstacleType == "Sky")
-            transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed * 2) * Time.deltaTime); //Obstaculo anda para a esquerda
-        else
-            transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Obstaculo anda para a esquerda
+        transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Obstaculo anda para a esquerda
     }
 
     private void Start()
     {
-        Destroy(gameObject, 10f); //Destruir objeto
+        Destroy(gameObject, 5f); //Destruir objeto
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //Colisoes

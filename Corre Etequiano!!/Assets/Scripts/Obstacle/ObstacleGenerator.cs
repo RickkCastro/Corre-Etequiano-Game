@@ -79,6 +79,7 @@ public class ObstacleGenerator : MonoBehaviour
             UnlockSky--; //Diminuir contagem para desbloquear o ceu
 
             GameObject Ins = Instantiate(CurrentObstacle, InsPosition, transform.rotation); //Criar obstacle
+            Ins.transform.parent = this.transform;
         }
     }
 }
