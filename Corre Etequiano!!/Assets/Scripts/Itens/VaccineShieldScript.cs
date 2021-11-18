@@ -24,7 +24,7 @@ public class VaccineShieldScript : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         transform.position = new Vector2(ShieldHand.position.x, ShieldHand.position.y);
     }

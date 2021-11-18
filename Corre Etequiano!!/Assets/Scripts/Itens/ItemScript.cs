@@ -10,7 +10,7 @@ public class ItemScript : MonoBehaviour
     [Dropdown("ItemTypeList")]//input the path of the list
     public string ItemType; //tipo do item
 
-    private void FixedUpdate() //A todo momento
+    private void Update() //A todo momento
     {
         transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed +5) * Time.deltaTime); //Item anda para a esquerda
     }

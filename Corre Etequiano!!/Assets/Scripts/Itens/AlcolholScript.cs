@@ -6,7 +6,7 @@ public class AlcolholScript : MonoBehaviour
 {
     public float Speed;
 
-    private void FixedUpdate() //A todo momento
+    private void Update() //A todo momento
     {
         transform.Translate(Vector2.right * Speed * Time.deltaTime); //Item anda para a esquerda
     }

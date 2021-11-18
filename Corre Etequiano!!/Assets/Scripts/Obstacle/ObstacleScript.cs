@@ -10,7 +10,7 @@ public class ObstacleScript : MonoBehaviour
     [Dropdown("ObstacleTypeList")]//input the path of the list
     public string ObstacleType;
 
-    private void FixedUpdate() //A todo momento
+    private void Update() //A todo momento
     {
         if(ObstacleType == "Sky")
             transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed * 2) * Time.deltaTime); //Obstaculo anda para a esquerda

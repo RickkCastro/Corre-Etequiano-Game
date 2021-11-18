@@ -11,7 +11,7 @@ public class BGMovement : MonoBehaviour
         InicialPos = transform.position;
     }
 
-    private void FixedUpdate() //A todo momento
+    private void Update() //A todo momento
     {
         transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Item anda para a esquerda
     }
