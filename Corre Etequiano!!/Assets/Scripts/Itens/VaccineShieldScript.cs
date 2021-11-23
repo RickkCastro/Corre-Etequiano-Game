@@ -5,57 +5,58 @@ using TMPro;
 
 public class VaccineShieldScript : MonoBehaviour
 {
-    private Transform ShieldHand;
-    public float DurantionTime;
-    public float time;
+    //Script do Escudo de vacina
 
-    public GameObject TxtShieldTime;
+    private Transform ShieldHand; //Lugar onde o escudo aparece no player
+    public float DurantionTime; //Tempo de duracao do escudo
+
+    public GameObject TxtShieldTime; //texto de tempo do escudo
 
     private void Awake()
     {
-        ShieldHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1);
+        ShieldHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1); //Pegar mao do escudo
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if (collision.CompareTag("Obstacle"))
+        if (collision.CompareTag("Obstacle")) //Caso o escudo colida com algum ostacle
         {
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); //Destruir obstacle
         }
     }
 
-    private void Update()
+    private void Update() //A todo momento
     {
-        transform.position = new Vector2(ShieldHand.position.x, ShieldHand.position.y);
+        transform.position = new Vector2(ShieldHand.position.x, ShieldHand.position.y); //Escudo no Y do player
     }
 
-    public void ActivateShield()
+    public void ActivateShield() //Ativar escudo
     {
-        StopAllCoroutines();
-        StartCoroutine(ShieldDuration());
+        StopAllCoroutines(); //Para todas as corotinas para recomecar
+        StartCoroutine(ShieldDuration()); //Comeca escudo
     }
 
     public IEnumerator ShieldDuration()
     {
-        float time = DurantionTime;
-        bool Activate = true;
+        float time = DurantionTime; //Tempo = a tempo de duracao
+        bool Activate = true; //Escudo esta ativado
 
-        TxtShieldTime.SetActive(true);
-        TxtShieldTime.GetComponent<TextMeshProUGUI>().text = time + "s";
+        TxtShieldTime.SetActive(true); //Ativa texto
+        TxtShieldTime.GetComponent<TextMeshProUGUI>().text = time + "s"; //Muda texto
 
-        while (Activate)
+        while (Activate) //Se escudo estiver ativo = loop
         {
-            yield return new WaitForSeconds(1f);
-            time--;
-            TxtShieldTime.GetComponent<TextMeshProUGUI>().text = time + "s";
+            yield return new WaitForSeconds(1f); //Esperar 1s
+            time--; //Diminuir tempo
+            TxtShieldTime.GetComponent<TextMeshProUGUI>().text = time + "s"; //Mudar texto
 
-            if (time < 1)
+            if (time < 1) //Se tempo for < 0
             {
-                Activate = false;
+                Activate = false; //Desativar escudo
             }
         }
 
-        TxtShieldTime.SetActive(false);
-        gameObject.SetActive(false);
+        TxtShieldTime.SetActive(false); //Desativar texto
+        gameObject.SetActive(false); //Desativar objeto do escudo
     }
 }

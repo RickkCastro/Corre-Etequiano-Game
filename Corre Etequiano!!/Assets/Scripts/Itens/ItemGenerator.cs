@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemGenerator : MonoBehaviour
 {
+    //Script de gerar itens
+
     [System.Serializable]
     public class Item //Valores que cada item tem
     {
@@ -21,18 +23,21 @@ public class ItemGenerator : MonoBehaviour
     public float MaxGenerationTime;
     public float InicialDelay; //Tempo que demora para itens comecarem a aparecer
 
+    //privados
     private GameObject CurrentItem; //Item a ser criado
     private Vector2 InsPosition; //Posicao que item sera criado
 
-    // Start is called before the first frame update
     void Start() 
     {
         StartCoroutine(GenerateItem()); //Gerar itens
+        InicialDelay = PlayerPrefs.GetFloat("ItemInicialDelay", InicialDelay); //pegar delay inicial no bd para ficar certo na troca de cenario
     }
 
-    IEnumerator GenerateItem() //Gerar obstacles
+    IEnumerator GenerateItem() //Gerar itens
     {
         yield return new WaitForSeconds(InicialDelay); //Esperar o delay inicial
+        PlayerPrefs.SetFloat("ItemInicialDelay", 0); //Setar no bd o delay inicial como 0
+
         while (true) //loop infinito
         {
             float RandomTime = Random.Range(MinGenerationTime, MaxGenerationTime); //Um tempo aleatorio para gerar
@@ -56,6 +61,7 @@ public class ItemGenerator : MonoBehaviour
             if (gerarItem)
             {
                 GameObject Ins = Instantiate(CurrentItem, InsPosition, transform.rotation); //criar item
+                Ins.transform.parent = this.transform;
                 yield return new WaitForSeconds(5f); //Delay de 5s para aparecer outro
             }
         }

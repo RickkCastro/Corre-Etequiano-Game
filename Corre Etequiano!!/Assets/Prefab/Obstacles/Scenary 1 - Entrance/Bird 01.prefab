@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4789098537550854366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1147017, y: -1.826, z: 0}
-  m_LocalScale: {x: 6.5770864, y: 6.5770864, z: 6.5770864}
+  m_LocalPosition: {x: -4.66, y: -1, z: 0}
+  m_LocalScale: {x: 7.8, y: 7.8, z: 7.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   ObstacleTypeList:
   - Common
   - Sky
+  - Enemy
   ObstacleType: Sky
 --- !u!61 &3497254094804228785
 BoxCollider2D:

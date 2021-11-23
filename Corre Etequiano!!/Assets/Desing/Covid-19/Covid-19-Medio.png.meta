@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 72646186603a6a5499438ed2e90a0779
+guid: 1d190b53a1e04bb4990d81cfec06e7dd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -899116715045802287
-    second: Covid-19-Medio_0
+      213: -8035469840390697366
+    second: Covid-19-sheet_0
   - first:
-      213: 3234001502224896288
-    second: Covid-19-Medio_1
+      213: 8722399246655622788
+    second: Covid-19-sheet_1
   - first:
-      213: 5371723790727019470
-    second: Covid-19-Medio_2
+      213: -6019493639015718866
+    second: Covid-19-sheet_2
   - first:
-      213: 4949594703814163887
-    second: Covid-19-Medio_3
+      213: 8636597638848273259
+    second: Covid-19-sheet_3
+  - first:
+      213: 8323659117033274462
+    second: Covid-19-sheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -127,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Covid-19-Medio_0
+      name: Covid-19-sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1de24148c12b583f0800000000000000
-      internalID: -899116715045802287
+      spriteID: a6ec52001c64c7090800000000000000
+      internalID: -8035469840390697366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid-19-Medio_1
+      name: Covid-19-sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -162,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 021d1375b3b71ec20800000000000000
-      internalID: 3234001502224896288
+      spriteID: 48e0b0ec6ef2c0970800000000000000
+      internalID: 8722399246655622788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid-19-Medio_2
+      name: Covid-19-sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -183,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecb7cc9b3523c8a40800000000000000
-      internalID: 5371723790727019470
+      spriteID: e20aebe8d66767ca0800000000000000
+      internalID: -6019493639015718866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Covid-19-Medio_3
+      name: Covid-19-sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -204,8 +207,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fad7ff6b82e70b440800000000000000
-      internalID: 4949594703814163887
+      spriteID: b6b578b3bcb5bd770800000000000000
+      internalID: 8636597638848273259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Covid-19-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cb536cdd3938370800000000000000
+      internalID: 8323659117033274462
       vertices: []
       indices: 
       edges: []

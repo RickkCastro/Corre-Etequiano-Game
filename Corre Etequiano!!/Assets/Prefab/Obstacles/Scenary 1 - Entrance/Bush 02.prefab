@@ -100,6 +100,7 @@ MonoBehaviour:
   ObstacleTypeList:
   - Common
   - Sky
+  - Enemy
   ObstacleType: 
 --- !u!61 &4153314838231251801
 BoxCollider2D:

@@ -126,7 +126,7 @@ MonoBehaviour:
   ObstacleTypeList:
   - Common
   - Sky
-  - Covid-19
+  - Enemy
   ObstacleType: 
 --- !u!50 &-8271750002801663408
 Rigidbody2D:

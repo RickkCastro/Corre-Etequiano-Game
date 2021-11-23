@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class SceneryLineScript : MonoBehaviour
 {
-    public GameObject Cam;
+    //Camera se movimentando no jogo
+
+    private GameObject Cam; //Camera
+
+    private void Start()
+    {
+        Cam = GameObject.FindGameObjectWithTag("MainCamera"); //Pegar camera
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("SceneryLine"))
+        if (collision.CompareTag("SceneryLine")) //Quando colidir com a linha do cenario
         {
-            Cam.transform.position = Cam.GetComponent<CameraMovement>().InicialPos;
+            Cam.transform.position = Cam.GetComponent<CameraMovement>().InicialPos; //colocar camera na pos inicial
         }
     }
 }

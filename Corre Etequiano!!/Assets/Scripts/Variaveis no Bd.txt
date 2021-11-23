@@ -1,0 +1,11 @@
+Delay inicial do item = PlayerPrefs.GetFloat("ItemInicialDelay", InicialDelay);
+Delay inicial dos Inimigos = PlayerPrefs.GetFloat("EnemyInicialDeplay", InicialDelay);
+
+Tempo max de geracao obstacle commun = PlayerPrefs.GetFloat("MaxGTimeCommon", MaxGenerationTime);
+Tempo max de geracao enemy = PlayerPrefs.GetFloat("MaxGTimeEnemy", MaxGenerationTime);
+
+UnlockSky Obstacle = PlayerPrefs.GetInt("UnlockSkyObstacles", UnlockSky);
+
+vida = PlayerPrefs.GetInt("PlayerLife", Life);
+alcool = PlayerPrefs.GetInt("PlayerAlcohol", 3);
+IdPlayer (Skin) = PlayerPrefs.GetInt("IdPlayer", 0)

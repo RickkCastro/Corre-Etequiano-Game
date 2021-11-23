@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class ObstacleScript : MonoBehaviour
 {
+    //Script de todos os obstacles gerados
+
     //Tipo de obstaculo
     [HideInInspector]
-    public List<string> ObstacleTypeList = new List<string> { "Common", "Sky", "Covid-19" };
+    public List<string> ObstacleTypeList = new List<string> { "Common", "Sky", "Enemy" };
     [Dropdown("ObstacleTypeList")]//input the path of the list
     public string ObstacleType;
 
@@ -17,7 +19,7 @@ public class ObstacleScript : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f); //Destruir objeto
+        Destroy(gameObject, 15f); //Destruir objeto
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //Colisoes

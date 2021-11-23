@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemScript : MonoBehaviour
 {
+    //Script dos itens gerados (movimento)
+
     //Selecionar item
     [HideInInspector]
     public List<string> ItemTypeList = new List<string> { "AlcoholAmmu", "LifeMask", "Vaccine" }; //Lista de tipos de itens
@@ -17,6 +19,6 @@ public class ItemScript : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 5f); //Destruir objeto
+        Destroy(gameObject, 15f); //Destruir objeto
     }
 }

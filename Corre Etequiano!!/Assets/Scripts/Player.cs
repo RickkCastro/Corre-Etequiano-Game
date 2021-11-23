@@ -11,23 +11,38 @@ public class Player : MonoBehaviour
     public int Life; //Quantidade de vida
     public int AlcoholAmmu; //Quantidade de alcohol do player
     public GameObject Alcohol; //Tiro de Alcohol
+    public GameObject VaccineShield; //Escudo
+    public GameObject DeathScreen; //Tela de morte
+    public bool immortal; //personagem n perde vida
 
+    [Header("Sounds")]
+    public AudioClip sJump;
+    public AudioClip sItem;
+    public AudioClip sDamage;
+    public AudioClip sDeath;
+    public AudioClip sAlcoholShot;
+
+    //Privados
     private bool isGrounded = false; //Se o player esta tocando no chao
-
-    private Rigidbody2D RB; 
+    private Rigidbody2D RB; //Rigdbody
     private Transform hand; //Mao onde items sao criados na frente do player
-    public GameObject VaccineShield;
-
-    private Animator anim;
+    private Animator anim; //Animator
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         RB = GetComponent<Rigidbody2D>(); //Pegar ridgbody
-        anim = GetComponent<Animator>();
-        anim.SetInteger("IdPlayer", PlayerPrefs.GetInt("IdPlayer", 0));
+        anim = GetComponent<Animator>(); //Pegar animator
+        anim.SetInteger("IdPlayer", PlayerPrefs.GetInt("IdPlayer", 0)); //Colocar animacao do player selecionado
 
         hand = transform.GetChild(0); //Pegar mao
+
+        //Pegar variaveis certas
+        Life = PlayerPrefs.GetInt("PlayerLife", 3);
+        GameUI.instance.UpdateLife(Life); //Atualizar imagem de mascaras
+
+        AlcoholAmmu = PlayerPrefs.GetInt("PlayerAlcohol", 3);
+        GameUI.instance.UpdateAlcohol(AlcoholAmmu); 
     }
 
     // Update is called once per frame
@@ -50,6 +65,10 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             RB.AddForce(Vector2.up * JumpForce); //pulo
+
+            //Som de pulo
+            GetComponent<AudioSource>().clip = sJump;
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -59,7 +78,13 @@ public class Player : MonoBehaviour
         {
             GameObject ins = Instantiate(Alcohol, hand.position, hand.rotation); //criar tiro
             AlcoholAmmu--; //Diminuir municao
-            GameUI.instance.UpdateAlcohol(AlcoholAmmu);
+            PlayerPrefs.SetInt("PlayerAlcohol", AlcoholAmmu);
+
+            GameUI.instance.UpdateAlcohol(AlcoholAmmu); //Atualizar imagem do alcohol
+
+            //Som do tiro
+            GetComponent<AudioSource>().clip = sAlcoholShot;
+            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -67,20 +92,42 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle")) //Com obstaculo
         {
-            Destroy(collision.gameObject); //Destruir obstacle
-            Life--; //Diminuir vida
-            GameUI.instance.UpdateMask(Life);
-
-            if (Life < 1) //Caso a vida seja menor q 1
+            if (!immortal) //Se nao for imortal
             {
-                Death(); //Morrer
+                Life--; //Diminuir vida
+                PlayerPrefs.SetInt("PlayerLife", Life);
+                GameUI.instance.UpdateLife(Life); //Atualizar imagem das mascaras
+                StartCoroutine(DamageAnim()); //Anim de dano
+
+                //Som de dano
+                GetComponent<AudioSource>().clip = sDamage;
+                GetComponent<AudioSource>().Play();
+
+                if (Life < 1) //Caso a vida seja menor q 1
+                {
+                    Death(); //Morrer
+                }
             }
+
+            Destroy(collision.gameObject); //Destruir obstacle
         }
 
         if (collision.gameObject.CompareTag("Item")) //Com Item
         {
             ItemEffect(collision.gameObject.GetComponent<ItemScript>().ItemType); //Ativar o efeito do item correspondente 
             Destroy(collision.gameObject); //Destruir item
+        }
+    }
+
+    private IEnumerator DamageAnim() //anim de dano
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            float time = 0.1f;
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            yield return new WaitForSeconds(time);
+            GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(time);
         }
     }
 
@@ -94,7 +141,16 @@ public class Player : MonoBehaviour
 
     private void Death() //Morrer
     {
-        SceneManager.LoadScene("Menu");
+        //Resetar valores
+        GameController.instance.ReniciarBd();
+
+        //Som de morrer
+        GetComponent<AudioSource>().clip = sDeath;
+        GetComponent<AudioSource>().Play();
+
+        //Chama tela de morte
+        GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
+        gameScreens.ActivateScreen(DeathScreen);
     }
 
     private void ItemEffect(string ItemType) //Efeitos dos itens
@@ -106,7 +162,8 @@ public class Player : MonoBehaviour
             if (Life < 3) //Se a vida for menor q 3
             {
                 Life++; //Aumentar vida
-                GameUI.instance.UpdateMask(Life);
+                PlayerPrefs.SetInt("PlayerLife", Life);
+                GameUI.instance.UpdateLife(Life);
             }
         }
 
@@ -115,14 +172,19 @@ public class Player : MonoBehaviour
             if (AlcoholAmmu < 3) //Se for menor q 3
             {
                 AlcoholAmmu++; //Aumentar alcohol
+                PlayerPrefs.SetInt("PlayerAlcohol", AlcoholAmmu);
                 GameUI.instance.UpdateAlcohol(AlcoholAmmu);
             }
         }
 
         if (ItemType == "Vaccine") //Vaccine
         {
-            VaccineShield.SetActive(true);
-            VaccineShield.GetComponent<VaccineShieldScript>().ActivateShield();
+            VaccineShield.SetActive(true); //Ativa escudo
+            VaccineShield.GetComponent<VaccineShieldScript>().ActivateShield(); //Chama script do escudo
         }
+
+        //Som de pegar item
+        GetComponent<AudioSource>().clip = sItem;
+        GetComponent<AudioSource>().Play();
     }
 }

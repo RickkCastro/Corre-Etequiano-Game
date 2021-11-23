@@ -5,8 +5,12 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    public TextMeshProUGUI TxtTime; //Texto que mostra o tempo
-    public int time; //tempo
+    //Script de controle da tela de jogo
+
+    public int GameTime; //Tempo de game
+    public int BestTime; //Melhor tempo
+
+    public GameObject PauseScreen;
 
     //Speed - velocidade do jogo
     [Header("Speed")]
@@ -16,6 +20,7 @@ public class GameController : MonoBehaviour
     public float CurrentSpeed; //Velocidade atual do jogo
 
     public static GameController instance;
+    private bool PauseOn = false;
 
     private void Awake()
     {
@@ -24,26 +29,59 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        CurrentSpeed = MinSpeed; //Colocar velocidade minima
+        GameTime = PlayerPrefs.GetInt("Time", 0); //Pegar tempo certo
+        BestTime = PlayerPrefs.GetInt("BestTime", GameTime); //Pegar melhor tempo
+        CurrentSpeed = PlayerPrefs.GetFloat("CurrentSpeed", MinSpeed); //Colocar a velocidade atual como minima no comeco
 
         StartCoroutine(Timer()); //Comecar timer
         StartCoroutine(Every1Second()); //AumentarVelocidade
     }
 
+    private void Update() //A todo momento
+    {
+        if(GameTime > BestTime) //Se o tempo de jogo for maior que o melhor tempo
+        {
+            BestTime = GameTime;
+        }
+
+        //Pausar e despausar jogo
+        if (Input.GetKeyDown(KeyCode.Escape) && !PauseOn|| Input.GetKeyDown(KeyCode.P) && !PauseOn)
+        {
+            GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
+            gameScreens.ActivateScreen(PauseScreen);
+            PauseOn = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && PauseOn || Input.GetKeyDown(KeyCode.P) && PauseOn)
+        {
+            GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
+            gameScreens.ReturnGame();
+            PauseOn = false;
+        }
+    }
+
+    private void OnApplicationQuit() //Quando o jogo  fechar
+    {
+        ReniciarBd();
+    }
+
+    public void ReniciarBd() //Apagar tudo
+    {
+        int IdPlayer = PlayerPrefs.GetInt("IdPlayer", 0);
+        BestTime = PlayerPrefs.GetInt("BestTime", GameTime);
+        
+        PlayerPrefs.DeleteAll();
+
+        //Guardar id do player e melhor tempo
+        PlayerPrefs.SetInt("IdPlayer", IdPlayer);
+        PlayerPrefs.SetInt("BestTime", BestTime);
+    }
+
     IEnumerator Timer()
     {
-        //Zerar tempo
-        int timeSeconds = 0;
-        int timeMinutes = 0;
-
         while (true) //Loop infinito
         {
+            GameTime++; //Aumentar 1s no timer
             yield return new WaitForSeconds(1f); //Esperar 1s
-            time++; //Aumentar 1s no timer
-            timeMinutes = (time / 60); //Definir minutos
-            timeSeconds = time - (60 * timeMinutes); //Definir segundos
-
-            TxtTime.text = "Time: " + timeMinutes.ToString("00") + ":" + timeSeconds.ToString("00"); //Colocar texto
         }
     }
 
@@ -57,6 +95,7 @@ public class GameController : MonoBehaviour
             if (CurrentSpeed < MaxSpeed) //Se a velocidade atual for menor q a velocidade maxima
             {
                 CurrentSpeed += SpeedMultiplier; //Aumentar velocidade
+                PlayerPrefs.SetFloat("CurrentSpeed", CurrentSpeed);
             }
         }
     }

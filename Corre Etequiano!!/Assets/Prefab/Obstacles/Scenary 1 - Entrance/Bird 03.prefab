@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7784448765171853224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1147017, y: -1.826, z: 0}
-  m_LocalScale: {x: 6.5770864, y: 6.5770864, z: 6.5770864}
+  m_LocalPosition: {x: -4.66, y: -1, z: 0}
+  m_LocalScale: {x: 7.8, y: 7.8, z: 7.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 5336361149278561342, guid: f0737525875030c4b96af7be9b7297ae, type: 3}
+  m_Sprite: {fileID: 1258925039641331609, guid: 3f5a8e0b3cd32d740b07e266f9b735cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,8 @@ MonoBehaviour:
   ObstacleTypeList:
   - Common
   - Sky
-  ObstacleType: Sky
+  - Enemy
+  ObstacleType: 
 --- !u!61 &2231849478318605767
 BoxCollider2D:
   m_ObjectHideFlags: 0
