@@ -23,10 +23,7 @@ public class SelectPlayer : MonoBehaviour
     public Image PlayerSprite; //Sprite onde são mostrados os players
     public TextMeshProUGUI TxtName; //Texto do nome do player
 
-    public GameObject TutorialPc; 
-    public GameObject TutorialMobile;
-
-    public bool isMobile;
+    public GameObject LoadingScreen;
 
     public AudioClip SoundSelectPlayer; //Som de selecionar player
 
@@ -80,23 +77,18 @@ public class SelectPlayer : MonoBehaviour
         yield return new WaitForSeconds(0.05f);
         PlayerSprite.transform.position = new Vector2(PlayerSprite.transform.position.x + 4, PlayerSprite.transform.position.y);
     }
-    public void PlayClick() //Botao de play
-    {
-        if (isMobile)
-            TutorialMobile.SetActive(true);
-        else
-            TutorialPc.SetActive(true);
 
+    public void GoToGame() //Ir para o jogo
+    {
         //Som de selecionar player
         GetComponent<AudioSource>().clip = SoundSelectPlayer;
         GetComponent<AudioSource>().Play();
 
+        LoadingScreen.SetActive(true);
+
         //Colocar o id do player no bd
         PlayerPrefs.SetInt("IdPlayer", CurrentPlayer);
-    }
 
-    public void GoToGame() //Ir para o jogo
-    {
         SceneManager.LoadScene("Scenary1"); //Carregar cenario 1
     }
 }

@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 284236381}
   - component: {fileID: 284236380}
   - component: {fileID: 284236384}
+  - component: {fileID: 284236386}
   - component: {fileID: 284236385}
   m_Layer: 5
   m_Name: UI
@@ -564,6 +565,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &284236386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284236379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6417cbb0c8dcf43bb34d74651166be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsMobile: 1
 --- !u!1 &307231748
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +635,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 274c5d454d8b74540bafc90c62553f66, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bec09f6efd85c7a489175ae8e3bb6801, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1566,7 +1580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 274c5d454d8b74540bafc90c62553f66, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bec09f6efd85c7a489175ae8e3bb6801, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

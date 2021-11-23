@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)) //Pular, apertar espaco
         {
-            Pular();
+            Jump();
         }
 
         if (Input.GetKeyDown(KeyCode.E)) //Atirar, apertar e
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Pular()
+    public void Jump()
     {
         if (isGrounded) //se o player estiver no chao
         {
