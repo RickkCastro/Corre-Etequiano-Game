@@ -29,6 +29,10 @@ public class GameScreens : MonoBehaviour
         Time.timeScale = 1; //Despausar jogo
         GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
         GetComponent<AudioSource>().Play(); //Executar audio de click
+
+        if (GameObject.Find("BGM")) //Procurar objeto BGM é destruir para n bugar no menu
+            Destroy(GameObject.Find("BGM"));
+
         SceneManager.LoadScene("Menu"); //Carregar menu
     }
 

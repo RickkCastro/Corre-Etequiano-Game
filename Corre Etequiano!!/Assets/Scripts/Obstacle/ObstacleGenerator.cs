@@ -44,11 +44,12 @@ public class ObstacleGenerator : MonoBehaviour
             //Variaveis pegas no bd para a troca de cenario continuar com a mesma velocidade e variaveis
             MaxGenerationTime = PlayerPrefs.GetFloat("MaxGTimeCommon", MaxGenerationTime); //Pegar no bd o tempo maximo de geracao
             UnlockSky = PlayerPrefs.GetInt("UnlockSkyObstacles", UnlockSky); //pegar no bd o desbloqueio do ceu
+            InicialDelay = PlayerPrefs.GetFloat("ObstaclesInicialDelay", InicialDelay); //Pegar valor do delay inicial para gerar obstacles
         }
         else //Enemy
         {
             MaxGenerationTime = PlayerPrefs.GetFloat("MaxGTimeEnemy", MaxGenerationTime); //Pegar no bd o tempo maximo de geracao
-            InicialDelay = PlayerPrefs.GetFloat("EnemyInicialDeplay", InicialDelay); //Pegar valor do delay inicial para gerar enemy
+            InicialDelay = PlayerPrefs.GetFloat("EnemyInicialDelay", InicialDelay); //Pegar valor do delay inicial para gerar enemy
         }
 
     }
@@ -78,7 +79,9 @@ public class ObstacleGenerator : MonoBehaviour
 
         //Caso seja um gerador de enemy
         if(IsEnemyGenerator)
-            PlayerPrefs.SetFloat("EnemyInicialDeplay", 0); //Colocar no bd o delay como 0
+            PlayerPrefs.SetFloat("EnemyInicialDelay", 0); //Colocar no bd o delay como 0
+        else
+            PlayerPrefs.SetFloat("ObstacleInicialDelay", 0);
 
         while (true) //loop infinito
         {

@@ -8,4 +8,6 @@ UnlockSky Obstacle = PlayerPrefs.GetInt("UnlockSkyObstacles", UnlockSky);
 
 vida = PlayerPrefs.GetInt("PlayerLife", Life);
 alcool = PlayerPrefs.GetInt("PlayerAlcohol", 3);
-IdPlayer (Skin) = PlayerPrefs.GetInt("IdPlayer", 0)
+IdPlayer (Skin) = PlayerPrefs.GetInt("IdPlayer", 0);
+Checagem se é mobile = PlayerPrefs.GetInt("IsMobile", 0);
+Checagem se já foi o tutorial = PlayerPrefs.GetInt("TutorialOff", 0);
