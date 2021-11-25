@@ -61,7 +61,7 @@ MonoBehaviour:
   IsEnemyGenerator: 1
   MinGenerationTime: 10
   MaxGenerationTime: 20
-  DecreaseGenerationTime: 0.05
+  DecreaseGenerationTime: 0.01
   MargemTime: 5
   InicialDelay: 25
 --- !u!212 &5708508007214792495

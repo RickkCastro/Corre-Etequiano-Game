@@ -54,7 +54,7 @@ MonoBehaviour:
     PositionY: 0.84
     ItemGO: {fileID: 2362879688450229947, guid: 867e66a9e77adb546bcc6927f7ed43aa, type: 3}
   - Name: VaccinePower
-    raridade: 5
+    raridade: 10
     PositionY: 0.46
     ItemGO: {fileID: 2200493269990146143, guid: 257e71ccef1440441bf0d0d69b4bc2df, type: 3}
   MinGenerationTime: 3

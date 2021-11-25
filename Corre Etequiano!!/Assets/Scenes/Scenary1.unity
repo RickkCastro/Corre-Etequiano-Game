@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c5bbfd73705bd4f9191a095c2426c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BGM: {fileID: 0}
   SceneMusic: {fileID: 8300000, guid: f5fb2a5f3bd23674f8dbdc88ebe563bb, type: 3}
 --- !u!4 &59032179
 Transform:
@@ -884,7 +885,7 @@ MonoBehaviour:
   FadeOut: {fileID: 602591545}
   NextScenary: Scenary2
   minRandomTime: 60
-  maxRandomTime: 120
+  maxRandomTime: 60
 --- !u!114 &1203402870
 MonoBehaviour:
   m_ObjectHideFlags: 0

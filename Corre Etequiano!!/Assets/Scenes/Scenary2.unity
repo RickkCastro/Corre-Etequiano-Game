@@ -1259,7 +1259,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5708508007214792489, guid: 53af699a938a97148a6eb61c3d1a79c7, type: 3}
       propertyPath: m_Name
-      value: CovidGenerator (1)
+      value: CovidGenerator
       objectReference: {fileID: 0}
     - target: {fileID: 5708508007214792494, guid: 53af699a938a97148a6eb61c3d1a79c7, type: 3}
       propertyPath: m_RootOrder
@@ -1435,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4026846065338297940, guid: 16b8f96872477e841b1c654f141191f8, type: 3}
       propertyPath: m_Name
-      value: ItemGenerator (1)
+      value: ItemGenerator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16b8f96872477e841b1c654f141191f8, type: 3}

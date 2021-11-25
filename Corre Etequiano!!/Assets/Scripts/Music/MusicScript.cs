@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectMusic : MonoBehaviour
+public class MusicScript : MonoBehaviour
 {
-    private AudioSource BGM;
+    public AudioSource BGM;
     public AudioClip SceneMusic;
 
     // Start is called before the first frame update
@@ -24,19 +24,26 @@ public class SelectMusic : MonoBehaviour
 
     IEnumerator ChangeMusic()
     {
-        while (BGM.volume > 0) //FadeIn da musica (abaixar)
+        BGM.volume = 0.5f;
+        while (BGM.volume > 0f) //FadeIn da musica (abaixar)
         {
-            BGM.volume -= 0.08f;
+            BGM.volume -= 0.05f;
             yield return new WaitForSeconds(0.1f);
         }
 
         BGM.clip = SceneMusic; //Mudar musica
         BGM.Play();
 
-        while (BGM.volume < 0.5) //FadeOut (Aumentar)
+        while (BGM.volume < 0.5f) //FadeOut (Aumentar)
         {
             BGM.volume += 0.05f;
             yield return new WaitForSeconds(0.1f);
         }
+    }
+
+    public void RestartMusic()
+    {
+        BGM.volume = 0.5f;
+        BGM.Play();
     }
 }

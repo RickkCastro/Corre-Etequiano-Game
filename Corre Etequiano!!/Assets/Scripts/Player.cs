@@ -154,6 +154,8 @@ public class Player : MonoBehaviour
         //Resetar valores
         GameController.instance.ReniciarBd();
 
+        GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0;
+
         //Som de morrer
         GetComponent<AudioSource>().clip = sDeath;
         GetComponent<AudioSource>().Play();

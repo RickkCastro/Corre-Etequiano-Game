@@ -21,6 +21,8 @@ public class GameScreens : MonoBehaviour
         Time.timeScale = 1; //despausar jogo
         GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
         GetComponent<AudioSource>().Play(); //Executar audio de click
+        GameObject.Find("ControlMusic").GetComponent<MusicScript>().RestartMusic();
+
         SceneManager.LoadScene("Scenary1"); //Carregar cenario 1
     }
 
