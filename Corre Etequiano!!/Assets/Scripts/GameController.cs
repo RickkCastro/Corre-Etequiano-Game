@@ -66,13 +66,13 @@ public class GameController : MonoBehaviour
 
     public void ReniciarBd() //Apagar tudo
     {
-        int IdPlayer = PlayerPrefs.GetInt("IdPlayer", 0);
+        string PlayerId = PlayerPrefs.GetString("PlayerId");
         BestTime = PlayerPrefs.GetInt("BestTime", GameTime);
         
         PlayerPrefs.DeleteAll();
 
         //Guardar id do player e melhor tempo
-        PlayerPrefs.SetInt("IdPlayer", IdPlayer);
+        PlayerPrefs.SetString("PlayerId", PlayerId);
         PlayerPrefs.SetInt("BestTime", BestTime);
     }
 

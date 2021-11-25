@@ -27,6 +27,7 @@ public class GameScreens : MonoBehaviour
     public void GoToMenu() //Botao de voltar ao menu
     {
         Time.timeScale = 1; //Despausar jogo
+        GameController.instance.ReniciarBd();
         GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
         GetComponent<AudioSource>().Play(); //Executar audio de click
 

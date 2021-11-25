@@ -13,6 +13,7 @@ public class SelectPlayer : MonoBehaviour
     public class Player
     {
         public string Name; //Nome do player
+        public string Id;
         public Sprite sprite; //Sprite do player
     }
 
@@ -87,7 +88,7 @@ public class SelectPlayer : MonoBehaviour
         LoadingScreen.SetActive(true);
 
         //Colocar o id do player no bd
-        PlayerPrefs.SetInt("IdPlayer", CurrentPlayer);
+        PlayerPrefs.SetString("PlayerId", Players[CurrentPlayer].Id);
 
         SceneManager.LoadScene("Scenary1"); //Carregar cenario 1
     }
