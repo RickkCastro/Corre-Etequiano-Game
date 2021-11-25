@@ -81,15 +81,21 @@ public class SelectPlayer : MonoBehaviour
 
     public void GoToGame() //Ir para o jogo
     {
+        StartCoroutine(GoToGameLoad());
+    }
+
+    IEnumerator GoToGameLoad()
+    {
+        LoadingScreen.SetActive(true);
+
         //Som de selecionar player
         GetComponent<AudioSource>().clip = SoundSelectPlayer;
         GetComponent<AudioSource>().Play();
 
-        LoadingScreen.SetActive(true);
-
         //Colocar o id do player no bd
         PlayerPrefs.SetString("PlayerId", Players[CurrentPlayer].Id);
 
+        yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene("Scenary1"); //Carregar cenario 1
     }
 }

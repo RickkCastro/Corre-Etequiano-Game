@@ -67,13 +67,14 @@ public class GameController : MonoBehaviour
     public void ReniciarBd() //Apagar tudo
     {
         string PlayerId = PlayerPrefs.GetString("PlayerId");
-        BestTime = PlayerPrefs.GetInt("BestTime", GameTime);
-        
+        int IsMobile = PlayerPrefs.GetInt("IsMobile");
+
         PlayerPrefs.DeleteAll();
 
         //Guardar id do player e melhor tempo
         PlayerPrefs.SetString("PlayerId", PlayerId);
         PlayerPrefs.SetInt("BestTime", BestTime);
+        PlayerPrefs.SetInt("IsMobile", IsMobile);
     }
 
     IEnumerator Timer()
@@ -81,6 +82,7 @@ public class GameController : MonoBehaviour
         while (true) //Loop infinito
         {
             GameTime++; //Aumentar 1s no timer
+            PlayerPrefs.SetInt("Time", GameTime);
             yield return new WaitForSeconds(1f); //Esperar 1s
         }
     }

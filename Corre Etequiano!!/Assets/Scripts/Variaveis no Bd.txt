@@ -1,3 +1,7 @@
+Tempo atual = PlayerPrefs.GetInt("Time", 0);
+Melhor tempo =PlayerPrefs.GetInt("BestTime", GameTime);
+Velocidade da partida = PlayerPrefs.GetFloat("CurrentSpeed", MinSpeed);
+
 Delay inicial do item = PlayerPrefs.GetFloat("ItemInicialDelay", InicialDelay);
 Delay inicial dos Inimigos = PlayerPrefs.GetFloat("EnemyInicialDeplay", InicialDelay);
 
@@ -8,6 +12,7 @@ UnlockSky Obstacle = PlayerPrefs.GetInt("UnlockSkyObstacles", UnlockSky);
 
 vida = PlayerPrefs.GetInt("PlayerLife", Life);
 alcool = PlayerPrefs.GetInt("PlayerAlcohol", 3);
-IdPlayer (Skin) = PlayerPrefs.GetInt("IdPlayer", 0);
+IdPlayer (Skin) = PlayerPrefs.GetString("PlayerId", "M1")
+
 Checagem se é mobile = PlayerPrefs.GetInt("IsMobile", 0);
 Checagem se já foi o tutorial = PlayerPrefs.GetInt("TutorialOff", 0);

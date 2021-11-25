@@ -242,7 +242,7 @@ MonoBehaviour:
   Life: 3
   AlcoholAmmu: 3
   Alcohol: {fileID: 6097606687411978228, guid: 70bb2ec8644b00542878c94d35690de1, type: 3}
-  VaccineShield: {fileID: 0}
+  VaccineShield: {fileID: 1711772274786822080, guid: 679704d115af9e84580fbb8e850dfeb2, type: 3}
   DeathScreen: {fileID: 0}
   immortal: 0
   sJump: {fileID: 8300000, guid: 6edbcf2d476bdbe4d94df22ef9cab491, type: 3}
@@ -352,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7243543643624241968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07825918, y: 0.06356718, z: 0}
+  m_LocalPosition: {x: 0.248, y: 0.285, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7243543642789366433}

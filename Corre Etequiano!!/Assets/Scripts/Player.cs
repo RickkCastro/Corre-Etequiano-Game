@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>(); //Pegar ridgbody
         anim = GetComponent<Animator>(); //Pegar animator
 
-        //anim.SetInteger("IdPlayer", PlayerPrefs.GetInt("IdPlayer", 0)); //Colocar animacao do player selecionado
         char[] PlayerIdChar = PlayerPrefs.GetString("PlayerId", "M1").ToCharArray();
         string Genre = PlayerIdChar[0].ToString();
         int PlayerIdAnim = int.Parse(PlayerIdChar[1].ToString());

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TutorialScreen : MonoBehaviour
 {
+    //Telas de tutoriais;
+
     public float TutorialDuration; //Durracao da tela de tutorial
     public GameObject TutorialMobile; //tela de tutorial mobile
     public GameObject TutorialPC; //tela de tutorial pc
@@ -19,8 +21,8 @@ public class TutorialScreen : MonoBehaviour
             Tutorial = TutorialPC;
 
         //Se o tutorial ainda n foi mostrado
-        if(PlayerPrefs.GetInt("TutorialOff", 0) == 0)
-            StartCoroutine(DisableTutorial()); 
+        if (PlayerPrefs.GetInt("TutorialOff", 0) == 0)
+            StartCoroutine(DisableTutorial());
     }
 
     IEnumerator DisableTutorial()

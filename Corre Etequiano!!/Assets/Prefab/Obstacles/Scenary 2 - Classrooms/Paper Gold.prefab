@@ -101,7 +101,7 @@ MonoBehaviour:
   - Common
   - Sky
   - Enemy
-  ObstacleType: 
+  ObstacleType: Sky
 --- !u!61 &1928374578238007683
 BoxCollider2D:
   m_ObjectHideFlags: 0
