@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     public int AlcoholAmmu; //Quantidade de alcohol do player
     public GameObject Alcohol; //Tiro de Alcohol
     public GameObject VaccineShield; //Escudo
-    public GameObject DeathScreen; //Tela de morte
     public bool immortal; //personagem n perde vida
 
     [Header("Sounds")]
@@ -151,9 +150,6 @@ public class Player : MonoBehaviour
 
     private void Death() //Morrer
     {
-        //Resetar valores
-        GameController.instance.ReniciarBd();
-
         GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0;
 
         //Som de morrer
@@ -162,7 +158,7 @@ public class Player : MonoBehaviour
 
         //Chama tela de morte
         GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
-        gameScreens.ActivateScreen(DeathScreen);
+        gameScreens.ActivateScreen(gameScreens.DeathScreen);
     }
 
     private void ItemEffect(string ItemType) //Efeitos dos itens

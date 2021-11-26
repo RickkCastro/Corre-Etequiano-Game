@@ -9,12 +9,21 @@ public class GameScreens : MonoBehaviour
     //Script das telas que aparecem durante o jogo, como pause e gameover
 
     public GameObject PauseScreen; //Tela de pause
+    public GameObject DeathScreen;
+    public GameObject AdPanel;
+
+    MonetizationManager monetizationManager;
 
     //Sons
     [Header("Sons")]
     public AudioClip sPauseIn; 
     public AudioClip sPauseOut;
     public AudioClip sButtons;
+
+    private void Start()
+    {
+        monetizationManager = FindObjectOfType<MonetizationManager>();
+    }
 
     public void PlayAgain() //Botao de jogar dnv
     {
@@ -42,11 +51,22 @@ public class GameScreens : MonoBehaviour
     public void ActivateScreen(GameObject Screen) //Ativar telas
     {
         Screen.SetActive(true); //Ativa objeto tela
-        if(Screen.name == "PauseScreen") //Se for a tela de pause
+
+        if(Screen == PauseScreen) //Se for a tela de pause
         {
             //Som de pausein
             GetComponent<AudioSource>().clip = sPauseIn;
             GetComponent<AudioSource>().Play();
+        }
+
+        if (Screen == DeathScreen) //Se for a tela de pause
+        {
+            if(PlayerPrefs.GetInt("Reborn") == 1)
+            {
+                AdPanel.SetActive(false);
+                //Resetar valores
+                GameController.instance.ReniciarBd();
+            }
         }
 
         //Ajustar informacoes de tempo
@@ -78,5 +98,38 @@ public class GameScreens : MonoBehaviour
         //Som
         GetComponent<AudioSource>().clip = sPauseOut;
         GetComponent<AudioSource>().Play();
+    }
+
+    public void Reborn() //Renascer
+    {
+        PlayerPrefs.SetInt("Reborn", 1);
+
+        AdPanel.SetActive(false);
+        DeathScreen.SetActive(false);
+        GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0.5f;
+
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.Life = 3;
+        PlayerPrefs.SetInt("PlayerLife", player.Life);
+        GameUI.instance.UpdateLife(player.Life);
+        GameUI.instance.UpdateAlcohol(player.AlcoholAmmu);
+
+        GetComponent<AudioSource>().clip = sPauseIn;
+        GetComponent<AudioSource>().Play();
+
+        Time.timeScale = 1;
+    }
+
+    public void BtCloseNoAd()
+    {
+        AdPanel.SetActive(false);
+
+        //Resetar valores
+        GameController.instance.ReniciarBd();
+    }
+
+    public void BtWatchAd()
+    {
+        monetizationManager.ShowRewarded("Reborn");
     }
 }

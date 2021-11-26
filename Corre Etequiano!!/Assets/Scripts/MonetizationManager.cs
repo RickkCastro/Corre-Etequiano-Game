@@ -2,74 +2,198 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using UnityEngine.UI;
+using TMPro;
 
 public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
-    string AndroidgameId = "4471261";
-    string _androidAdUnitId = "Interstitial_Android";
-    bool testMode = true;
-    bool _enablePerPlacementMode = true;
 
-    // Start is called before the first frame update
-    void Awake()
+    //Ads Extras
+    //public GameObject backfillBanner;
+    //public GameObject backfillInterstitial;
+    //public GameObject backfillRewarded;
+    //public Button closeButton;
+    //public Image closeImage;
+    //int timeout = 3;
+
+    //Rewards
+    string selectedRewardType = "";
+    private bool giveUserReward = false;
+
+    bool debugMode = false;
+
+    //Android
+    string gameID = "4471261";
+    string interstitialID = "Interstitial_Android";
+    string rewardedID = "Rewarded_Android";
+
+    //Singleton
+    private static MonetizationManager _Instance;
+    public static MonetizationManager Instance
     {
-        Advertisement.Initialize(AndroidgameId, testMode, _enablePerPlacementMode, this);
+        get
+        {
+            if (_Instance == null)
+            {
+                _Instance = FindObjectOfType<MonetizationManager>();
+
+                if (_Instance == null)
+                {
+                    GameObject monetizationObject = Instantiate(Resources.Load<GameObject>("MonetizationManager"));
+                    _Instance = monetizationObject.GetComponent<MonetizationManager>();
+                }
+            }
+
+            return _Instance;
+        }
+    }
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+        debugMode = Debug.isDebugBuild;
+
+        //Ads Extras
+        //closeButton.gameObject.SetActive(false);
+        //backfillInterstitial.SetActive(false);
+        //backfillRewarded.SetActive(false);
+
+        Advertisement.debugMode = false;
+        Advertisement.Initialize(gameID, debugMode, true, this);
     }
 
     public void OnInitializationComplete()
     {
-        Debug.Log("Unity Ads initialization complete.");
-        LoadAd();
-        ShowAd();
+        if (debugMode) Debug.Log("[MonetizationManager] OnInitializationComplete");
+
+        //Carregar anuncios
+        Advertisement.Load(interstitialID, this);
+        Advertisement.Load(rewardedID, this);
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)
     {
-        Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
-    }
-
-    public void LoadAd()
-    {
-        // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).
-        Debug.Log("Loading Ad: " + _androidAdUnitId);
-        Advertisement.Load(_androidAdUnitId, this);
-    }
-
-    // Show the loaded content in the Ad Unit: 
-    public void ShowAd()
-    {
-        // Note that if the ad content wasn't previously loaded, this method will fail
-        Debug.Log("Showing Ad: " + _androidAdUnitId);
-        Advertisement.Show(_androidAdUnitId, this);
+        if (debugMode) Debug.Log("[MonetizationManager] OnInitializationFailed: " + error.ToString() + " | " + message);
     }
 
     public void OnUnityAdsAdLoaded(string placementId)
     {
-        Debug.Log("Anuncio load");
+        if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsAdLoaded: " + placementId);
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
-        Debug.Log("Anuncio nao load");
+        if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsFailedToLoad: " + placementId + " | " + error.ToString() + " | " + message);
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
     {
-        Debug.Log("Anuncio nao show");
+        if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsShowFailure: " + placementId + " | " + error.ToString() + " | " + message);
     }
 
     public void OnUnityAdsShowStart(string placementId)
     {
-        Debug.Log("Anuncio show");
+        if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsShowStart: " + placementId);
     }
 
     public void OnUnityAdsShowClick(string placementId)
     {
-        
+        if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsShowClick: " + placementId);
     }
 
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
-        
+        if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsShowComplete: " + placementId + " | " + showCompletionState.ToString());
+
+        //Rewards
+        if (placementId.Trim().Equals(rewardedID) && showCompletionState == UnityAdsShowCompletionState.COMPLETED)
+        {
+            giveUserReward = true;
+        }
+
+        //Carregar mais um anuncio
+        Advertisement.Load(placementId, this);
+    }
+
+    public void Update()
+    {
+        //if (closeImage.fillAmount < 1)
+        //{
+        //    closeImage.fillAmount += Time.deltaTime / timeout;
+        //}
+        //else
+        //{
+        //    closeButton.interactable = true;
+        //}
+
+        if (giveUserReward == true)
+        {
+            giveUserReward = false;
+            RewardUser();
+        }
+    }
+
+    public void OpenURL(string url)
+    {
+        Application.OpenURL(url);
+    }
+
+    public void ShowInterstitial()
+    {
+        if (debugMode) Debug.Log("[MonetizationManager] ShowInterstitial");
+        if (Advertisement.IsReady(interstitialID))
+        {
+            Advertisement.Show(interstitialID, this);
+        }
+        //Ads extras
+        //else
+        //{
+        //    timeout = 3;
+        //    closeButton.gameObject.SetActive(true);
+        //    closeButton.interactable = false;
+        //    closeImage.fillAmount = 0;
+        //    backfillInterstitial.SetActive(true);
+        //}
+    }
+
+    public void ShowRewarded(string rewardType)
+    {
+        if (debugMode) Debug.Log("[MonetizationManager] ShowRewarded: " + rewardType);
+        selectedRewardType = rewardType;
+
+        if (Advertisement.IsReady(rewardedID))
+        {
+            Advertisement.Show(rewardedID, this);
+        }
+
+        //Ads extras
+        //else
+        //{
+        //    timeout = 15;
+        //    closeButton.gameObject.SetActive(true);
+        //    closeButton.interactable = false;
+        //    closeImage.fillAmount = 0;
+        //    backfillRewarded.SetActive(true);
+        //    Invoke("RewardUser", timeout);
+        //}
+    }
+
+    private void RewardUser()
+    {
+        if (debugMode) Debug.Log("[MonetizationManager] RewardUser:" + selectedRewardType.ToString());
+
+        switch (selectedRewardType)
+        {
+            case "Reborn":
+                GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
+                gameScreens.Reborn();
+                break;
+            case "COINS_5": //Teste com moedas
+                int coins = int.Parse(GameObject.Find("coins").GetComponent<TextMeshProUGUI>().text) + 5;
+                GameObject.Find("coins").GetComponent<TextMeshProUGUI>().text = coins.ToString();
+                break;
+            default:
+                break;
+        }
     }
 }

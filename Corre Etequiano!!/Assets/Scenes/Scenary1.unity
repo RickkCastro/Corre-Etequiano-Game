@@ -1453,6 +1453,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 125800238, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -476.56543
+      objectReference: {fileID: 0}
+    - target: {fileID: 125800238, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -405.37988
+      objectReference: {fileID: 0}
+    - target: {fileID: 434802586, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -476.56543
+      objectReference: {fileID: 0}
+    - target: {fileID: 434802586, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -405.37988
+      objectReference: {fileID: 0}
+    - target: {fileID: 1668755006751996689, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 483.44043
+      objectReference: {fileID: 0}
+    - target: {fileID: 1967458310541829795, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -74.444824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054158543961522232, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -315.46484
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223729309819366452, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 315.46484
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691337893556680081, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 72.25879
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933657690277005842, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -479.5205
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933657690667490955, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 481.3125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933657690907298802, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -478.6905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933657690907298802, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 74.47217
+      objectReference: {fileID: 0}
     - target: {fileID: 4933657691090126285, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1540,6 +1592,22 @@ PrefabInstance:
     - target: {fileID: 4933657691090126289, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
       propertyPath: m_Name
       value: CanvasGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933657691447150191, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 480.48047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933657691712123915, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -478.6905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4933657691712123915, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 74.47217
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514326655957411721, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 483.44043
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
@@ -1673,6 +1741,10 @@ PrefabInstance:
     - target: {fileID: 7243543642789366433, guid: 370c3c04d4ccdd44c846a5b8dfe31a0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243543642789366435, guid: 370c3c04d4ccdd44c846a5b8dfe31a0e, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7243543642789366444, guid: 370c3c04d4ccdd44c846a5b8dfe31a0e, type: 3}
       propertyPath: m_Name
