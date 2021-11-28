@@ -977,7 +977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameTime: 0
   BestTime: 0
-  PauseScreen: {fileID: 2070924084}
+  MatchesForAd: 3
   MinSpeed: 8
   MaxSpeed: 50
   SpeedMultiplier: 0.1
@@ -1554,11 +1554,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2070924084 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4933657691043790859, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
-  m_PrefabInstance: {fileID: 452526102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2112675353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4933657691152500678, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}

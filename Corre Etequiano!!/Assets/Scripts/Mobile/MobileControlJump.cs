@@ -5,25 +5,27 @@ using UnityEngine.EventSystems;
 
 public class MobileControlJump : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
+    //Script para controlar o pulo no celular
+
     private Player player;
     bool Holding;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); //player
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp(PointerEventData eventData) //quando soltar a tela
     {
         Holding = false;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData) //quando cliar na tela
     {
         Holding = true;
     }
 
-    private void Update()
+    private void Update() //a todo momento
     {
         if (Holding)
             player.Jump();

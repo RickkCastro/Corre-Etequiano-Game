@@ -9,10 +9,10 @@ public class GameScreens : MonoBehaviour
     //Script das telas que aparecem durante o jogo, como pause e gameover
 
     public GameObject PauseScreen; //Tela de pause
-    public GameObject DeathScreen;
-    public GameObject AdPanel;
-
-    MonetizationManager monetizationManager;
+    public GameObject DeathScreen; //Tela de morte
+    public GameObject AdPanel; //Panel de anuncio 
+    public GameObject LoadingScreen;
+    public GameObject ReturnScreen;
 
     //Sons
     [Header("Sons")]
@@ -20,17 +20,13 @@ public class GameScreens : MonoBehaviour
     public AudioClip sPauseOut;
     public AudioClip sButtons;
 
-    private void Start()
-    {
-        monetizationManager = FindObjectOfType<MonetizationManager>();
-    }
-
     public void PlayAgain() //Botao de jogar dnv
     {
         Time.timeScale = 1; //despausar jogo
+
         GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
         GetComponent<AudioSource>().Play(); //Executar audio de click
-        GameObject.Find("ControlMusic").GetComponent<MusicScript>().RestartMusic();
+        GameObject.Find("ControlMusic").GetComponent<MusicScript>().RestartMusic(); //Reiniciar musica
 
         SceneManager.LoadScene("Scenary1"); //Carregar cenario 1
     }
@@ -38,12 +34,14 @@ public class GameScreens : MonoBehaviour
     public void GoToMenu() //Botao de voltar ao menu
     {
         Time.timeScale = 1; //Despausar jogo
-        GameController.instance.ReniciarBd();
+        BDManager.instace.ReniciarBd();
         GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
         GetComponent<AudioSource>().Play(); //Executar audio de click
 
-        if (GameObject.Find("BGM")) //Procurar objeto BGM é destruir para n bugar no menu
-            Destroy(GameObject.Find("BGM"));
+        for(int i = 0; i < GameObject.FindGameObjectsWithTag("DontDestroyOnLoad").Length; i++)
+        {
+            Destroy(GameObject.FindGameObjectsWithTag("DontDestroyOnLoad")[i]);
+        }
 
         SceneManager.LoadScene("Menu"); //Carregar menu
     }
@@ -61,11 +59,11 @@ public class GameScreens : MonoBehaviour
 
         if (Screen == DeathScreen) //Se for a tela de pause
         {
-            if(PlayerPrefs.GetInt("Reborn") == 1)
+            if(PlayerPrefs.GetInt("Reborn", 0) == 1)
             {
                 AdPanel.SetActive(false);
                 //Resetar valores
-                GameController.instance.ReniciarBd();
+                BDManager.instace.ReniciarBd();
             }
         }
 
@@ -100,10 +98,13 @@ public class GameScreens : MonoBehaviour
         GetComponent<AudioSource>().Play();
     }
 
+
+    //Ads
     public void Reborn() //Renascer
     {
         PlayerPrefs.SetInt("Reborn", 1);
 
+        LoadingScreen.SetActive(false);
         AdPanel.SetActive(false);
         DeathScreen.SetActive(false);
         GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0.5f;
@@ -125,11 +126,19 @@ public class GameScreens : MonoBehaviour
         AdPanel.SetActive(false);
 
         //Resetar valores
-        GameController.instance.ReniciarBd();
+        BDManager.instace.ReniciarBd();
     }
 
     public void BtWatchAd()
     {
-        monetizationManager.ShowRewarded("Reborn");
+        LoadingScreen.SetActive(true);
+        MonetizationManager.Instance.ShowRewarded("Reborn");
+    }
+
+    public void WatchAd()
+    {
+        LoadingScreen.SetActive(true);
+        MonetizationManager.Instance.ShowInterstitial();
+        LoadingScreen.SetActive(false);
     }
 }

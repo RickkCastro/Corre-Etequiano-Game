@@ -9,8 +9,7 @@ public class GameController : MonoBehaviour
 
     public int GameTime; //Tempo de game
     public int BestTime; //Melhor tempo
-
-    public GameObject PauseScreen;
+    public int MatchesForAd;
 
     //Speed - velocidade do jogo
     [Header("Speed")]
@@ -48,7 +47,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !PauseOn|| Input.GetKeyDown(KeyCode.P) && !PauseOn)
         {
             GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
-            gameScreens.ActivateScreen(PauseScreen);
+            gameScreens.ActivateScreen(gameScreens.PauseScreen);
             PauseOn = true;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && PauseOn || Input.GetKeyDown(KeyCode.P) && PauseOn)
@@ -61,20 +60,7 @@ public class GameController : MonoBehaviour
 
     private void OnApplicationQuit() //Quando o jogo  fechar
     {
-        ReniciarBd();
-    }
-
-    public void ReniciarBd() //Apagar tudo
-    {
-        string PlayerId = PlayerPrefs.GetString("PlayerId");
-        int IsMobile = PlayerPrefs.GetInt("IsMobile");
-
-        PlayerPrefs.DeleteAll();
-
-        //Guardar id do player e melhor tempo
-        PlayerPrefs.SetString("PlayerId", PlayerId);
-        PlayerPrefs.SetInt("BestTime", BestTime);
-        PlayerPrefs.SetInt("IsMobile", IsMobile);
+        BDManager.instace.ReniciarBd();
     }
 
     IEnumerator Timer()

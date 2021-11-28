@@ -150,14 +150,31 @@ public class Player : MonoBehaviour
 
     private void Death() //Morrer
     {
-        GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0;
+        try
+        {
+            GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0;
+        }
+        catch
+        {
+            Debug.Log("Erro ao pegar Control Music");
+        }
+
+        GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
+
+        int CountForAd = PlayerPrefs.GetInt("CountForAd", 0) + 1;
+        PlayerPrefs.SetInt("CountForAd", CountForAd);
+
+        if(CountForAd == GameController.instance.MatchesForAd)
+        {
+            PlayerPrefs.SetInt("CountForAd", 0);
+            gameScreens.WatchAd();
+        }
 
         //Som de morrer
         GetComponent<AudioSource>().clip = sDeath;
         GetComponent<AudioSource>().Play();
 
         //Chama tela de morte
-        GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
         gameScreens.ActivateScreen(gameScreens.DeathScreen);
     }
 

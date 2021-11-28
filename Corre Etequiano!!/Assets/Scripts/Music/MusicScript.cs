@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-    public AudioSource BGM;
-    public AudioClip SceneMusic;
+    //Script que controla a troca de musica
+
+    public AudioSource BGM; //objeto q toca musica
+    public AudioClip SceneMusic; //musica da cena 
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,7 @@ public class MusicScript : MonoBehaviour
         catch { }
     }
 
-    IEnumerator ChangeMusic()
+    IEnumerator ChangeMusic() //mudar musica
     {
         BGM.volume = 0.5f;
         while (BGM.volume > 0f) //FadeIn da musica (abaixar)
@@ -41,7 +43,7 @@ public class MusicScript : MonoBehaviour
         }
     }
 
-    public void RestartMusic()
+    public void RestartMusic() //Reiniciar musica
     {
         BGM.volume = 0.5f;
         BGM.Play();

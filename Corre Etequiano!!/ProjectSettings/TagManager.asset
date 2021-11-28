@@ -12,6 +12,7 @@ TagManager:
   - PlayerAmmu
   - Alcohol
   - SceneryLine
+  - DontDestroyOnLoad
   layers:
   - Default
   - TransparentFX
