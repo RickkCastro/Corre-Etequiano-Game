@@ -22,6 +22,8 @@ public class BDManager : MonoBehaviour
         int IsMobile = PlayerPrefs.GetInt("IsMobile");
         int BestTime = PlayerPrefs.GetInt("BestTime");
         int CountForAd = PlayerPrefs.GetInt("CountForAd");
+        int MuteMusic = PlayerPrefs.GetInt("MuteMusic");
+        int MuteSounds = PlayerPrefs.GetInt("MuteSounds");
 
         PlayerPrefs.DeleteAll();
 
@@ -30,5 +32,7 @@ public class BDManager : MonoBehaviour
         PlayerPrefs.SetInt("BestTime", BestTime);
         PlayerPrefs.SetInt("IsMobile", IsMobile);
         PlayerPrefs.SetInt("CountForAd", CountForAd);
+        PlayerPrefs.SetInt("MuteMusic", MuteMusic);
+        PlayerPrefs.SetInt("MuteSounds", MuteSounds);
     }
 }

@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &133613775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3577371808957045377, guid: eef674a5a0a1e6d489e6a6f5fe8695c5, type: 3}
+  m_PrefabInstance: {fileID: 3577371809311379833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &133613779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133613775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b0485d19b77304382e244b8fdb85b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mute: 0
 --- !u!1 &174383150
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,7 +579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -280.58997, y: 28.093506}
+  m_AnchoredPosition: {x: -280.58984, y: 28.093262}
   m_SizeDelta: {x: 561.17993, y: 56.187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689590676
@@ -883,6 +901,7 @@ GameObject:
   - component: {fileID: 1029084160}
   - component: {fileID: 1029084159}
   - component: {fileID: 1029084158}
+  - component: {fileID: 1029084157}
   m_Layer: 0
   m_Name: MenuControl
   m_TagString: Untagged
@@ -890,6 +909,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1029084157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029084156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341f852c5e919914daf03b5b673b6e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mute: 0
 --- !u!82 &1029084158
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1806,6 +1838,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3577371808957045376, guid: eef674a5a0a1e6d489e6a6f5fe8695c5, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e6fda67d4b2fed44824c177108fb1ed, type: 3}
     - target: {fileID: 3577371808957045377, guid: eef674a5a0a1e6d489e6a6f5fe8695c5, type: 3}
       propertyPath: m_Name
       value: BGM

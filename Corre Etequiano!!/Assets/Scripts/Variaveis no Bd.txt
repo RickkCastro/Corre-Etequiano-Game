@@ -18,4 +18,6 @@ IdPlayer (Skin) = PlayerPrefs.GetString("PlayerId", "M1")
 Checagem se é mobile = PlayerPrefs.GetInt("IsMobile", 0);
 Checagem se já foi o tutorial = PlayerPrefs.GetInt("TutorialOff", 0);
 Checagem de renascimento = PlayerPrefs.GetInt("Reborn");
-part para rodar anuncio = PlayerPrefs.GetInt("CountForAd", 0); 
+part para rodar anuncio = PlayerPrefs.GetInt("CountForAd", 0);
+
+Musica mutado ou nn = PlayerPrefs.GetInt("MuteMusic", 0)

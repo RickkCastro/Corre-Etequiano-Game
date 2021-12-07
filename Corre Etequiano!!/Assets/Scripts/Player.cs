@@ -7,7 +7,7 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public float JumpForce; //Força do pulo
+    public float JumpForce; //Forï¿½a do pulo
     public int Life; //Quantidade de vida
     public int AlcoholAmmu; //Quantidade de alcohol do player
     public GameObject Alcohol; //Tiro de Alcohol
@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
     public AudioClip sDamage;
     public AudioClip sDeath;
     public AudioClip sAlcoholShot;
+
+    public Player(AudioClip sAlcoholShot)
+    {
+        this.sAlcoholShot = sAlcoholShot;
+    }
 
     //Privados
     private bool isGrounded = false; //Se o player esta tocando no chao
