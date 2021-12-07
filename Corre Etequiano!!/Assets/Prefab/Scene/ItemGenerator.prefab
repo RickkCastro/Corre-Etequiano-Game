@@ -54,11 +54,13 @@ MonoBehaviour:
     PositionY: 0.84
     ItemGO: {fileID: 2362879688450229947, guid: 867e66a9e77adb546bcc6927f7ed43aa, type: 3}
   - Name: VaccinePower
-    raridade: 10
+    raridade: 8
     PositionY: 0.46
     ItemGO: {fileID: 2200493269990146143, guid: 257e71ccef1440441bf0d0d69b4bc2df, type: 3}
-  MinGenerationTime: 3
+  MinGenerationTime: 2
   MaxGenerationTime: 5
+  DecreaseGenerationTime: 0.01
+  MargemTime: 1
   InicialDelay: 30
 --- !u!212 &1478094061202632707
 SpriteRenderer:

@@ -27,7 +27,10 @@ public class MobileControlJump : MonoBehaviour, IPointerUpHandler, IPointerDownH
 
     private void Update() //a todo momento
     {
-        if (Holding)
-            player.Jump();
+        if (PlayerPrefs.GetInt("IsMobile", 1) == 1)
+        {
+            if (Holding)
+                player.Jump();
+        }
     }
 }

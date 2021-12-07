@@ -15,13 +15,15 @@ public class MusicScript : MonoBehaviour
         try //tentar achar objeto
         {
             BGM = GameObject.Find("BGM").GetComponent<AudioSource>(); //Objeto que toca musica de fundo
-
-            if (BGM.clip != SceneMusic) //Se a musica do BGM for diferente da musica da cena
-            {
-                StartCoroutine(ChangeMusic()); //Mudar musica
-            }
         }
-        catch { }
+        catch { //Criar caso n ache
+            BGM = Instantiate(Resources.Load<GameObject>("DontDestroy/BGM").GetComponent<AudioSource>());
+        }
+
+        if (BGM.clip != SceneMusic) //Se a musica do BGM for diferente da musica da cena
+        {
+            StartCoroutine(ChangeMusic()); //Mudar musica
+        }
     }
 
     IEnumerator ChangeMusic() //mudar musica

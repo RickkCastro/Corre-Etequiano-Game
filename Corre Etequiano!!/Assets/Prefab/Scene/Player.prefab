@@ -242,8 +242,7 @@ MonoBehaviour:
   Life: 3
   AlcoholAmmu: 3
   Alcohol: {fileID: 6097606687411978228, guid: 70bb2ec8644b00542878c94d35690de1, type: 3}
-  VaccineShield: {fileID: 1711772274786822080, guid: 679704d115af9e84580fbb8e850dfeb2, type: 3}
-  DeathScreen: {fileID: 0}
+  VaccineShield: {fileID: 0}
   immortal: 0
   sJump: {fileID: 8300000, guid: 6edbcf2d476bdbe4d94df22ef9cab491, type: 3}
   sItem: {fileID: 8300000, guid: 0788906cbb58c494b8d90841505d79a6, type: 3}

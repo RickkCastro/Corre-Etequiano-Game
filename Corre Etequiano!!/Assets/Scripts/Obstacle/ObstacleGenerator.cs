@@ -36,9 +36,6 @@ public class ObstacleGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GenerateObstacle()); //Gerar obstacles
-        StartCoroutine(Every1Second()); //A cada segundo
-
         if (!IsEnemyGenerator) //Se nao for um gerador de inimigos
         {
             //Variaveis pegas no bd para a troca de cenario continuar com a mesma velocidade e variaveis
@@ -52,6 +49,8 @@ public class ObstacleGenerator : MonoBehaviour
             InicialDelay = PlayerPrefs.GetFloat("EnemyInicialDelay", InicialDelay); //Pegar valor do delay inicial para gerar enemy
         }
 
+        StartCoroutine(GenerateObstacle()); //Gerar obstacles
+        StartCoroutine(Every1Second()); //A cada segundo
     }
 
     IEnumerator Every1Second() //A cada segundo

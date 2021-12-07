@@ -41,6 +41,7 @@ public class GameController : MonoBehaviour
         if(GameTime > BestTime) //Se o tempo de jogo for maior que o melhor tempo
         {
             BestTime = GameTime;
+            PlayerPrefs.SetInt("BestTime", BestTime);
         }
 
         //Pausar e despausar jogo
@@ -60,7 +61,15 @@ public class GameController : MonoBehaviour
 
     private void OnApplicationQuit() //Quando o jogo  fechar
     {
-        BDManager.instace.ReniciarBd();
+        try //tentar achar objeto
+        {
+            BDManager.instace.ReniciarBd();
+        }
+        catch
+        { //Criar caso n ache
+            BDManager bdManager = Instantiate(Resources.Load<GameObject>("DontDestroy/BDManager").GetComponent<BDManager>());
+            bdManager.ReniciarBd();
+        }
     }
 
     IEnumerator Timer()

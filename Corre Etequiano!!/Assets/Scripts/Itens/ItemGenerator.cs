@@ -21,6 +21,8 @@ public class ItemGenerator : MonoBehaviour
     [Header("Time")]
     public float MinGenerationTime;
     public float MaxGenerationTime;
+    public float DecreaseGenerationTime; //Valor q o tempo de geracao maximo deminui a cada segundo
+    public float MargemTime; //tempo minimo de diferenca a ficar entre o tempo maximo e minimo de geracao
     public float InicialDelay; //Tempo que demora para itens comecarem a aparecer
 
     //privados
@@ -29,8 +31,26 @@ public class ItemGenerator : MonoBehaviour
 
     void Start() 
     {
-        StartCoroutine(GenerateItem()); //Gerar itens
         InicialDelay = PlayerPrefs.GetFloat("ItemInicialDelay", InicialDelay); //pegar delay inicial no bd para ficar certo na troca de cenario
+        MaxGenerationTime = PlayerPrefs.GetFloat("MaxGTimeItem", MaxGenerationTime);
+
+        StartCoroutine(GenerateItem()); //Gerar itens
+        StartCoroutine(Every1Second()); //A cada segundo
+    }
+
+    IEnumerator Every1Second() //A cada segundo
+    {
+        while (true) //Loop infinito
+        {
+            yield return new WaitForSeconds(1f); //Esperar um segundo
+
+            if (MaxGenerationTime > MinGenerationTime + MargemTime) //Se o tempo max for maior q o tempo min + margem de tempo
+            {
+                MaxGenerationTime -= DecreaseGenerationTime; //Diminuir tempo maximo
+
+                PlayerPrefs.SetFloat("MaxGTimeItem", MaxGenerationTime);
+            }
+        }
     }
 
     IEnumerator GenerateItem() //Gerar itens
@@ -62,7 +82,7 @@ public class ItemGenerator : MonoBehaviour
             {
                 GameObject Ins = Instantiate(CurrentItem, InsPosition, transform.rotation); //criar item
                 Ins.transform.parent = this.transform;
-                yield return new WaitForSeconds(5f); //Delay de 5s para aparecer outro
+                yield return new WaitForSeconds(MargemTime); //Delay para aparecer outro
             }
         }
     }

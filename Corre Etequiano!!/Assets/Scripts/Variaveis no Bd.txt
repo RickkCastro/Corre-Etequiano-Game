@@ -7,6 +7,7 @@ Delay inicial dos Inimigos = PlayerPrefs.GetFloat("EnemyInicialDeplay", InicialD
 
 Tempo max de geracao obstacle commun = PlayerPrefs.GetFloat("MaxGTimeCommon", MaxGenerationTime);
 Tempo max de geracao enemy = PlayerPrefs.GetFloat("MaxGTimeEnemy", MaxGenerationTime);
+tempo mas de geracao item = PlayerPrefs.GetFloat("MaxGTimeItem", MaxGenerationTime);
 
 UnlockSky Obstacle = PlayerPrefs.GetInt("UnlockSkyObstacles", UnlockSky);
 
@@ -17,4 +18,4 @@ IdPlayer (Skin) = PlayerPrefs.GetString("PlayerId", "M1")
 Checagem se é mobile = PlayerPrefs.GetInt("IsMobile", 0);
 Checagem se já foi o tutorial = PlayerPrefs.GetInt("TutorialOff", 0);
 Checagem de renascimento = PlayerPrefs.GetInt("Reborn");
-PlayerPrefs.GetInt("CountForAd", 0);
+part para rodar anuncio = PlayerPrefs.GetInt("CountForAd", 0); 

@@ -34,7 +34,17 @@ public class GameScreens : MonoBehaviour
     public void GoToMenu() //Botao de voltar ao menu
     {
         Time.timeScale = 1; //Despausar jogo
-        BDManager.instace.ReniciarBd();
+
+        try //tentar achar objeto
+        {
+            BDManager.instace.ReniciarBd();
+        }
+        catch
+        { //Criar caso n ache
+            BDManager bdManager = Instantiate(Resources.Load<GameObject>("DontDestroy/BDManager").GetComponent<BDManager>());
+            bdManager.ReniciarBd();
+        }
+
         GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
         GetComponent<AudioSource>().Play(); //Executar audio de click
 
@@ -126,19 +136,46 @@ public class GameScreens : MonoBehaviour
         AdPanel.SetActive(false);
 
         //Resetar valores
-        BDManager.instace.ReniciarBd();
+        try //tentar achar objeto
+        {
+            BDManager.instace.ReniciarBd();
+        }
+        catch
+        { //Criar caso n ache
+            BDManager bdManager = Instantiate(Resources.Load<GameObject>("DontDestroy/BDManager").GetComponent<BDManager>());
+            bdManager.ReniciarBd();
+        }
     }
 
     public void BtWatchAd()
     {
         LoadingScreen.SetActive(true);
-        MonetizationManager.Instance.ShowRewarded("Reborn");
+
+        try //tentar achar objeto
+        {
+            MonetizationManager.Instance.ShowRewarded("Reborn");
+        }
+        catch
+        { //Criar caso n ache
+            MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
+            monetizationManager.ShowRewarded("Reborn");
+        }
     }
 
     public void WatchAd()
     {
         LoadingScreen.SetActive(true);
-        MonetizationManager.Instance.ShowInterstitial();
+
+        try //tentar achar objeto
+        {
+            MonetizationManager.Instance.ShowRewarded("Reborn");
+        }
+        catch
+        { //Criar caso n ache
+            MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
+            monetizationManager.ShowRewarded("Reborn");
+        }
+
         LoadingScreen.SetActive(false);
     }
 }

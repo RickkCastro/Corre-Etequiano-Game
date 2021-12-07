@@ -15,6 +15,9 @@ public class MobileControlShotAlcohol : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData) //quando cliar
     {
-        player.ShotAlcohol();
+        if (PlayerPrefs.GetInt("IsMobile", 1) == 1)
+        {
+            player.ShotAlcohol();
+        }
     }
 }

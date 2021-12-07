@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 8355622358575189134}
   - component: {fileID: 8355622358575189133}
   - component: {fileID: 8355622358575189130}
-  - component: {fileID: 8355622358575189128}
   - component: {fileID: 8355622358575189135}
   - component: {fileID: -3433267322869674509}
   - component: {fileID: 1400612995678919559}
+  - component: {fileID: 2831409469954668148}
   m_Layer: 0
   m_Name: Covid-19-Medio
   m_TagString: Obstacle
@@ -104,32 +104,6 @@ MonoBehaviour:
   - Sky
   - Enemy
   ObstacleType: Enemy
---- !u!61 &8355622358575189128
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8355622358575189132}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0039015263, y: -0.0029261634}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.163939, y: 0.17759438}
-  m_EdgeRadius: 0
 --- !u!95 &8355622358575189135
 Animator:
   serializedVersion: 3
@@ -266,3 +240,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &2831409469954668148
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355622358575189132}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.007, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09
