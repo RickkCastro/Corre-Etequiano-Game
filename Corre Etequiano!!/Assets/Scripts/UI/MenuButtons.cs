@@ -10,7 +10,6 @@ public class MenuButtons : MonoBehaviour
 
     public void PlayClick() //Botao de play
     {
-        GetComponent<AudioSource>().Play(); //Executar som de click
-        SceneManager.LoadScene("SelectPlayer"); //Carregar cena de selecionar personagem
+        SceneManager.LoadScene("ClosetStore"); //Carregar cena de selecionar personagem
     }
 }

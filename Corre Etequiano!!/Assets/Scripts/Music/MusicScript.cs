@@ -14,9 +14,16 @@ public class MusicScript : MonoBehaviour
     {
         try //tentar achar objeto
         {
-            BGM = GameObject.Find("BGM").GetComponent<AudioSource>(); //Objeto que toca musica de fundo
+            if(GameObject.Find("BGM"))
+            {
+                BGM = GameObject.Find("BGM").GetComponent<AudioSource>(); //Objeto que toca musica de fundo
+            }
+            else {
+                BGM = GameObject.Find("BGM(Clone)").GetComponent<AudioSource>();
+            }
         }
-        catch { //Criar caso n ache
+        catch
+        { //Criar caso n ache
             BGM = Instantiate(Resources.Load<GameObject>("DontDestroy/BGM").GetComponent<AudioSource>());
         }
 
