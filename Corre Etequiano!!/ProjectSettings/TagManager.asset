@@ -13,6 +13,8 @@ TagManager:
   - Alcohol
   - SceneryLine
   - DontDestroyOnLoad
+  - TxtBestTime
+  - TxtCurrentTime
   layers:
   - Default
   - TransparentFX

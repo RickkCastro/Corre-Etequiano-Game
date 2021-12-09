@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !PauseOn|| Input.GetKeyDown(KeyCode.P) && !PauseOn)
         {
             GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
-            gameScreens.ActivateScreen(gameScreens.PauseScreen);
+            gameScreens.CallPauseScreen();
             PauseOn = true;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && PauseOn || Input.GetKeyDown(KeyCode.P) && PauseOn)

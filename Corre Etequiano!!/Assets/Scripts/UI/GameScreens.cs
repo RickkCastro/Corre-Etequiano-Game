@@ -28,13 +28,7 @@ public class GameScreens : MonoBehaviour
         GetComponent<AudioSource>().Play(); //Executar audio de click
         GameObject.Find("ControlMusic").GetComponent<MusicScript>().RestartMusic(); //Reiniciar musica
 
-        SceneManager.LoadScene("Scenary1"); //Carregar cenario 1
-    }
-
-    public void GoToMenu() //Botao de voltar ao menu
-    {
-        Time.timeScale = 1; //Despausar jogo
-
+        //Resetar valores
         try //tentar achar objeto
         {
             BDManager.instace.ReniciarBd();
@@ -45,48 +39,47 @@ public class GameScreens : MonoBehaviour
             bdManager.ReniciarBd();
         }
 
-        GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
-        GetComponent<AudioSource>().Play(); //Executar audio de click
-
-        for(int i = 0; i < GameObject.FindGameObjectsWithTag("DontDestroyOnLoad").Length; i++)
-        {
-            Destroy(GameObject.FindGameObjectsWithTag("DontDestroyOnLoad")[i]);
-        }
-
-        SceneManager.LoadScene("Menu"); //Carregar menu
+        SceneManager.LoadScene("Scenary1"); //Carregar cenario 1
     }
 
-    public void ActivateScreen(GameObject Screen) //Ativar telas
+    public void CallPauseScreen() //Ativar telas
     {
-        Screen.SetActive(true); //Ativa objeto tela
+        PauseScreen.SetActive(true); //Ativa objeto tela
+        GetInfos();
 
-        if(Screen == PauseScreen) //Se for a tela de pause
+        GetComponent<AudioSource>().clip = sPauseIn;
+        GetComponent<AudioSource>().Play();
+
+        Time.timeScale = 0; //Pausar jogo
+    }
+
+    public void CallDeathScreen()
+    {
+        if(PlayerPrefs.GetInt("Reborn", 0) == 1)
         {
-            //Som de pausein
-            GetComponent<AudioSource>().clip = sPauseIn;
-            GetComponent<AudioSource>().Play();
+            AdPanel.SetActive(false);
+            DeathScreen.SetActive(true);
+            GetInfos();
+        }
+        else{
+            AdPanel.SetActive(true);
         }
 
-        if (Screen == DeathScreen) //Se for a tela de pause
-        {
-            if(PlayerPrefs.GetInt("Reborn", 0) == 1)
-            {
-                AdPanel.SetActive(false);
-                //Resetar valores
-                BDManager.instace.ReniciarBd();
-            }
-        }
+        Time.timeScale = 0; //Pausar jogo
+    }
 
+    private void GetInfos() //Pegar infos de tempo
+    {
         //Ajustar informacoes de tempo
-        TextMeshProUGUI TxtCurrentTime = Screen.transform.GetChild(2).GetComponent<TextMeshProUGUI>(); //texto de Tempo atual
-        TextMeshProUGUI TxtBestTime = Screen.transform.GetChild(1).GetComponent<TextMeshProUGUI>(); //texto de melhor tempo
+        TextMeshProUGUI TxtCurrentTime = GameObject.FindGameObjectWithTag("TxtCurrentTime").GetComponent<TextMeshProUGUI>(); //texto de Tempo atual
+        TextMeshProUGUI TxtBestTime = GameObject.FindGameObjectWithTag("TxtBestTime").GetComponent<TextMeshProUGUI>(); //texto de melhor tempo
 
         int time = GameController.instance.GameTime; //Tempo atual do jogo
 
         int timeMinutes = (time / 60); //Definir minutos
         int timeSeconds = time - (60 * timeMinutes); //Definir segundos
 
-        TxtCurrentTime.text = "Tempo Atual: " + timeMinutes.ToString("00") + ":" + timeSeconds.ToString("00"); //Colocar texto de tempo atual
+        TxtCurrentTime.text = timeMinutes.ToString("00") + ":" + timeSeconds.ToString("00"); //Colocar texto de tempo atual
 
         int BestTime = GameController.instance.BestTime; //Melhor tempo
 
@@ -94,8 +87,6 @@ public class GameScreens : MonoBehaviour
         int BestTimeSeconds = BestTime - (60 * BestTimeMinutes); //Definir segundos
 
         TxtBestTime.text = "Melhor Tempo: " + BestTimeMinutes.ToString("00") + ":" + BestTimeSeconds.ToString("00"); //Colocar texto de melhor tempo
-
-        Time.timeScale = 0; //Pausar jogo
     }
 
     public void ReturnGame() //Despausar jogo
@@ -133,37 +124,21 @@ public class GameScreens : MonoBehaviour
 
     public void BtCloseNoAd()
     {
+        //Som
+        GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
+        GetComponent<AudioSource>().Play(); //Executar audio de click
+
         AdPanel.SetActive(false);
-
-        //Resetar valores
-        try //tentar achar objeto
-        {
-            BDManager.instace.ReniciarBd();
-        }
-        catch
-        { //Criar caso n ache
-            BDManager bdManager = Instantiate(Resources.Load<GameObject>("DontDestroy/BDManager").GetComponent<BDManager>());
-            bdManager.ReniciarBd();
-        }
-    }
-
-    public void BtWatchAd()
-    {
-        LoadingScreen.SetActive(true);
-
-        try //tentar achar objeto
-        {
-            MonetizationManager.Instance.ShowRewarded("Reborn");
-        }
-        catch
-        { //Criar caso n ache
-            MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
-            monetizationManager.ShowRewarded("Reborn");
-        }
+        DeathScreen.SetActive(true);
+        GetInfos();
     }
 
     public void WatchAd()
     {
+        //Som
+        GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
+        GetComponent<AudioSource>().Play(); //Executar audio de click
+
         LoadingScreen.SetActive(true);
 
         try //tentar achar objeto

@@ -17,21 +17,37 @@ public class OptionsUI : MonoBehaviour
         gameObject.SetActive(isActive);
     }
 
-    public void ChangeScene(string scene){
+    public void ChangeScene(string scene)
+    {
         audioSource.Play();
 
-        if(scene != SceneManager.GetActiveScene().name){
-            
-            if(scene == "Menu"){
+        if(scene != SceneManager.GetActiveScene().name)
+        {
+            Time.timeScale = 1;
+
+            if(scene == "Menu")
+            {
                 for(int i = 0; i < GameObject.FindGameObjectsWithTag("DontDestroyOnLoad").Length; i++)
                 {
                     Destroy(GameObject.FindGameObjectsWithTag("DontDestroyOnLoad")[i]);
                 }
             }
             
+            //Resetar valores
+            try //tentar achar objeto
+            {
+                BDManager.instace.ReniciarBd();
+            }
+            catch
+            { //Criar caso n ache
+                BDManager bdManager = Instantiate(Resources.Load<GameObject>("DontDestroy/BDManager").GetComponent<BDManager>());
+                bdManager.ReniciarBd();
+            }
+
             SceneManager.LoadScene(scene);
         }
-        else{
+        else
+        {
             OpenCloseOptions();
         }
     }

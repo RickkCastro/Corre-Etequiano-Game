@@ -180,7 +180,7 @@ public class Player : MonoBehaviour
         GetComponent<AudioSource>().Play();
 
         //Chama tela de morte
-        gameScreens.ActivateScreen(gameScreens.DeathScreen);
+        gameScreens.CallDeathScreen();
     }
 
     private void ItemEffect(string ItemType) //Efeitos dos itens
