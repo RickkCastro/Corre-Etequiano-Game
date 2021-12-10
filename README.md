@@ -24,7 +24,7 @@
     <h3>Gênero:</h3>
     <p>Infinite Runner.</p> 
     <h3>Plataformas:</h3>
-    <p>PC (Por Enquanto).</p>
+    <p>Mobile.</p>
     <h3>Estilo artístico:</h3>
     <p>Pixel art.</p>
     <h3>Ambientações:</h3>
