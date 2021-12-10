@@ -1,18 +1,13 @@
-# Corre-Etequiano-Game
+# Corre-Etequiano
 
 <div>
 <h2>Desenvolvedora:</h2>
- GreenCube Developer
-</div>
-
-## Motivo do Jogo 🤷:
-<div>
-    Esse jogo está sendo criado para ser apresentado no Sarau da Escola Etec Taboão da Serra.<br>
+ GreenCubes Developer
 </div>
 
 ## Descrição do Jogo 📃:
 <div>
-    Jogo no estilo Infinite Runner, onde somos um aluno da Etec Taboão da Serra,<br> 
+    Jogo no estilo Infinite Runner, onde somos um aluno,<br> 
     correndo pela escola e se defendendo do Covid-19, o jogador encontrará inúmeros obstáculos<br> 
     durante sua corrida, podendo pular e usar álcool em gel para se defender. O aluno também passará<br> 
     por diferentes cenários pela escola e encontrará itens de power up.
@@ -29,11 +24,11 @@
     <h3>Gênero:</h3>
     <p>Infinite Runner.</p> 
     <h3>Plataformas:</h3>
-    <p>PC (Por Enquanto).</p>
+    <p>Mobile.</p>
     <h3>Estilo artístico:</h3>
     <p>Pixel art.</p>
     <h3>Ambientações:</h3>
-    <p>Na escola Etec Taboão da Serra (inicialmente)</p>
+    <p>Em uma Escola do Brasil(inicialmente)</p>
 </div>
 
 ## Ferramentas 🛠:
