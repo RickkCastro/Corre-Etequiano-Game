@@ -22,8 +22,6 @@ public class GameScreens : MonoBehaviour
 
     public void PlayAgain() //Botao de jogar dnv
     {
-        Time.timeScale = 1; //despausar jogo
-
         GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
         GetComponent<AudioSource>().Play(); //Executar audio de click
         GameObject.Find("ControlMusic").GetComponent<MusicScript>().RestartMusic(); //Reiniciar musica
@@ -50,7 +48,7 @@ public class GameScreens : MonoBehaviour
         GetComponent<AudioSource>().clip = sPauseIn;
         GetComponent<AudioSource>().Play();
 
-        Time.timeScale = 0; //Pausar jogo
+        GameController.instance.IsPaused = true; //Pausar jogo
     }
 
     public void CallDeathScreen()
@@ -65,7 +63,7 @@ public class GameScreens : MonoBehaviour
             AdPanel.SetActive(true);
         }
 
-        Time.timeScale = 0; //Pausar jogo
+        GameController.instance.IsPaused = true; //Pausar jogo
     }
 
     private void GetInfos() //Pegar infos de tempo
@@ -91,7 +89,7 @@ public class GameScreens : MonoBehaviour
 
     public void ReturnGame() //Despausar jogo
     {
-        Time.timeScale = 1; //Despausar jogo
+        ReturnScreen.SetActive(true);
         PauseScreen.SetActive(false); //Desativar tela de pause
 
         //Som
@@ -119,7 +117,7 @@ public class GameScreens : MonoBehaviour
         GetComponent<AudioSource>().clip = sPauseIn;
         GetComponent<AudioSource>().Play();
 
-        Time.timeScale = 1;
+        ReturnScreen.SetActive(true);
     }
 
     public void BtCloseNoAd()
@@ -135,22 +133,47 @@ public class GameScreens : MonoBehaviour
 
     public void WatchAd()
     {
-        //Som
-        GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
-        GetComponent<AudioSource>().Play(); //Executar audio de click
-
-        LoadingScreen.SetActive(true);
-
-        try //tentar achar objeto
+        if(MonetizationManager.Instance.AdsOff == false) //se os ads n estiverem desativados 
         {
-            MonetizationManager.Instance.ShowRewarded("Reborn");
-        }
-        catch
-        { //Criar caso n ache
-            MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
-            monetizationManager.ShowRewarded("Reborn");
-        }
+            //som
+            GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
+            GetComponent<AudioSource>().Play(); //Executar audio de click
 
-        LoadingScreen.SetActive(false);
+            LoadingScreen.SetActive(true);
+
+            try //tentar achar objeto
+            {
+                MonetizationManager.Instance.ShowRewarded("Reborn");
+            }
+            catch
+            { //Criar caso n ache
+                MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
+                monetizationManager.ShowRewarded("Reborn");
+            }
+        }
+        else
+        {
+            Reborn();
+        }
+    }
+
+    public void WatchAdInterstitial()
+    {
+        if(MonetizationManager.Instance.AdsOff == false)
+        {
+            LoadingScreen.SetActive(true);
+
+            try //tentar achar objeto
+            {
+                MonetizationManager.Instance.ShowInterstitial();
+            }
+            catch
+            { //Criar caso n ache
+                MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
+                MonetizationManager.Instance.ShowInterstitial();
+            }
+
+            LoadingScreen.SetActive(false);
+        }
     }
 }

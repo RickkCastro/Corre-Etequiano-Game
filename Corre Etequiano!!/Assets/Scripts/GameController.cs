@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class GameController : MonoBehaviour
     public float CurrentSpeed; //Velocidade atual do jogo
 
     public static GameController instance;
-    private bool PauseOn = false;
+    private bool PauseScreenOn;
+    public bool IsPaused; 
 
     private void Awake()
     {
@@ -45,18 +47,28 @@ public class GameController : MonoBehaviour
         }
 
         //Pausar e despausar jogo
-        if (Input.GetKeyDown(KeyCode.Escape) && !PauseOn|| Input.GetKeyDown(KeyCode.P) && !PauseOn)
+        if (Input.GetKeyDown(KeyCode.Escape) && !PauseScreenOn|| Input.GetKeyDown(KeyCode.P) && !PauseScreenOn)
         {
             GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
             gameScreens.CallPauseScreen();
-            PauseOn = true;
+            PauseScreenOn = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && PauseOn || Input.GetKeyDown(KeyCode.P) && PauseOn)
+        else if (Input.GetKeyDown(KeyCode.Escape) && PauseScreenOn || Input.GetKeyDown(KeyCode.P) && PauseScreenOn)
         {
             GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
             gameScreens.ReturnGame();
-            PauseOn = false;
+            PauseScreenOn = false;
         }
+
+        if(IsPaused)
+        {
+            PauseGame();
+        }
+    }
+
+    private void PauseGame()
+    {
+        CurrentSpeed = 0;
     }
 
     private void OnApplicationQuit() //Quando o jogo  fechar
@@ -76,10 +88,19 @@ public class GameController : MonoBehaviour
     {
         while (true) //Loop infinito
         {
-            GameTime++; //Aumentar 1s no timer
-            PlayerPrefs.SetInt("Time", GameTime);
-            yield return new WaitForSeconds(1f); //Esperar 1s
+            if(!IsPaused) //Se nao tiver pausado
+            {
+                GameTime++; //Aumentar 1s no timer
+                PlayerPrefs.SetInt("Time", GameTime);
+                yield return new WaitForSeconds(1f); //Esperar 1s
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.01f);
+            }
+
         }
+        
     }
 
     //Velocidade
@@ -87,12 +108,20 @@ public class GameController : MonoBehaviour
     {
         while (true) //Loop infinito
         {
-            yield return new WaitForSeconds(1f); //Esperar um segundo
-
-            if (CurrentSpeed < MaxSpeed) //Se a velocidade atual for menor q a velocidade maxima
+            if(!IsPaused) //Se nao estiver pausado
             {
-                CurrentSpeed += SpeedMultiplier; //Aumentar velocidade
-                PlayerPrefs.SetFloat("CurrentSpeed", CurrentSpeed);
+                if (CurrentSpeed < MaxSpeed) //Se a velocidade atual for menor q a velocidade maxima
+                {
+                    CurrentSpeed = PlayerPrefs.GetFloat("CurrentSpeed", CurrentSpeed);
+                    CurrentSpeed += SpeedMultiplier; //Aumentar velocidade
+                    PlayerPrefs.SetFloat("CurrentSpeed", CurrentSpeed);
+                }
+
+                yield return new WaitForSeconds(1f); //Esperar um segundo
+            }
+            else
+            {
+                yield return new WaitForSeconds(0.01f);
             }
         }
     }

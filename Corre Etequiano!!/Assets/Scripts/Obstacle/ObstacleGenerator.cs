@@ -59,15 +59,18 @@ public class ObstacleGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); //Esperar um segundo
 
-            if(MaxGenerationTime > MinGenerationTime + MargemTime) //Se o tempo max for maior q o tempo min + margem de tempo
+            if(GameController.instance.IsPaused == false)
             {
-                MaxGenerationTime -= DecreaseGenerationTime; //Diminuir tempo maximo
+                if(MaxGenerationTime > MinGenerationTime + MargemTime) //Se o tempo max for maior q o tempo min + margem de tempo
+                {
+                    MaxGenerationTime -= DecreaseGenerationTime; //Diminuir tempo maximo
 
-                //Salvar valores no bd
-                if (!IsEnemyGenerator)
-                    PlayerPrefs.SetFloat("MaxGTimeCommon", MaxGenerationTime);
-                else //Covid
-                    PlayerPrefs.SetFloat("MaxGTimeEnemy", MaxGenerationTime);
+                    //Salvar valores no bd
+                    if (!IsEnemyGenerator)
+                        PlayerPrefs.SetFloat("MaxGTimeCommon", MaxGenerationTime);
+                    else //Covid
+                        PlayerPrefs.SetFloat("MaxGTimeEnemy", MaxGenerationTime);
+                }
             }
         }
     }
@@ -91,33 +94,36 @@ public class ObstacleGenerator : MonoBehaviour
 
             //Debug.Log(RandomRarity);
 
-            for (int i = 0; i < ObstaclesList.Count; i++) //Passar checando a raridade de todos os obstacles ate pegar o masi raro
+            if(GameController.instance.IsPaused == false)
             {
-                if(ObstaclesList[i].raridade >= RandomRarity) 
+                for (int i = 0; i < ObstaclesList.Count; i++) //Passar checando a raridade de todos os obstacles ate pegar o masi raro
                 {
-                    CurrentObstacle = ObstaclesList[i].ObstacleGO; //Pegar obstacle
+                    if(ObstaclesList[i].raridade >= RandomRarity) 
+                    {
+                        CurrentObstacle = ObstaclesList[i].ObstacleGO; //Pegar obstacle
 
-                    InsPosition = new Vector2(transform.position.x, ObstaclesList[i].PositionY); //Pegar poscicao
+                        InsPosition = new Vector2(transform.position.x, ObstaclesList[i].PositionY); //Pegar poscicao
+                    }
                 }
-            }
 
-            if(UnlockSky > 0 && CurrentObstacle.GetComponent<ObstacleScript>().ObstacleType == "Sky") //Se um obstacle aereo aparecer e o ceu ainda estivar bloqueado
-            {
-                CurrentObstacle = ObstaclesList[0].ObstacleGO; //Pegar 1 obstacle da lista
-                InsPosition = new Vector2(transform.position.x, ObstaclesList[0].PositionY); 
-            }
+                if(UnlockSky > 0 && CurrentObstacle.GetComponent<ObstacleScript>().ObstacleType == "Sky") //Se um obstacle aereo aparecer e o ceu ainda estivar bloqueado
+                {
+                    CurrentObstacle = ObstaclesList[0].ObstacleGO; //Pegar 1 obstacle da lista
+                    InsPosition = new Vector2(transform.position.x, ObstaclesList[0].PositionY); 
+                }
 
-            if(UnlockSky > 0)
-            {
-                UnlockSky--; //Diminuir contagem para desbloquear o ceu
-                
-                //Caso n seja um gerador de enemy
-                if (!IsEnemyGenerator)
-                    PlayerPrefs.SetInt("UnlockSkyObstacles", UnlockSky); //Colocar valor no bd
-            }
+                if(UnlockSky > 0)
+                {
+                    UnlockSky--; //Diminuir contagem para desbloquear o ceu
+                    
+                    //Caso n seja um gerador de enemy
+                    if (!IsEnemyGenerator)
+                        PlayerPrefs.SetInt("UnlockSkyObstacles", UnlockSky); //Colocar valor no bd
+                }
 
-            GameObject Ins = Instantiate(CurrentObstacle, InsPosition, transform.rotation); //Criar obstacle
-            Ins.transform.parent = this.transform;
+                GameObject Ins = Instantiate(CurrentObstacle, InsPosition, transform.rotation); //Criar obstacle
+                Ins.transform.parent = this.transform;
+            }
         }
     }
 }

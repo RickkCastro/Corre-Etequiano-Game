@@ -26,7 +26,16 @@ public class ScenaryChange : MonoBehaviour
     {
         //esperar tempo aleatorio
         int RandomTime = Random.Range(minRandomTime, maxRandomTime);
-        yield return new WaitForSeconds(RandomTime);
+        
+        int time = 0;
+
+        while(time < RandomTime)
+        {
+            if(GameController.instance.IsPaused == false) //Se o jogo n estiver pausado 
+                time++;
+
+            yield return new WaitForSeconds(1f);
+        }
 
         FadeOut.SetActive(true); //Ativar fade
 

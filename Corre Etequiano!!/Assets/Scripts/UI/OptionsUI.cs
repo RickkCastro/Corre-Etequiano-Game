@@ -23,8 +23,6 @@ public class OptionsUI : MonoBehaviour
 
         if(scene != SceneManager.GetActiveScene().name)
         {
-            Time.timeScale = 1;
-
             if(scene == "Menu")
             {
                 for(int i = 0; i < GameObject.FindGameObjectsWithTag("DontDestroyOnLoad").Length; i++)

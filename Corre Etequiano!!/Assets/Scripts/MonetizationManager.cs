@@ -9,12 +9,15 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
 {
 
     //Ads Extras
-    //public GameObject backfillBanner;
-    //public GameObject backfillInterstitial;
-    //public GameObject backfillRewarded;
-    //public Button closeButton;
-    //public Image closeImage;
-    //int timeout = 3;
+    public GameObject backfillInterstitial;
+    public GameObject backfillRewarded;
+    public Button closeButton;
+    public Image closeImage;
+
+    public bool AdsOff;
+
+    private bool IsRewardedExtraAd;
+    int timeout = 3;
 
     //Rewards
     string selectedRewardType = "";
@@ -39,7 +42,7 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
 
                 if (_Instance == null)
                 {
-                    GameObject monetizationObject = Instantiate(Resources.Load<GameObject>("MonetizationManager"));
+                    GameObject monetizationObject = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager"));
                     _Instance = monetizationObject.GetComponent<MonetizationManager>();
                 }
             }
@@ -54,9 +57,9 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
         debugMode = Debug.isDebugBuild;
 
         //Ads Extras
-        //closeButton.gameObject.SetActive(false);
-        //backfillInterstitial.SetActive(false);
-        //backfillRewarded.SetActive(false);
+        closeButton.gameObject.SetActive(false);
+        backfillInterstitial.SetActive(false);
+        backfillRewarded.SetActive(false);
 
         Advertisement.debugMode = false;
         Advertisement.Initialize(gameID, debugMode, true, this);
@@ -84,11 +87,21 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
     {
         if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsFailedToLoad: " + placementId + " | " + error.ToString() + " | " + message);
+
+        if(placementId == rewardedID)
+            ShowExtraAd(15, true);
+        else if(placementId == interstitialID)
+            ShowExtraAd(3, false);
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
     {
         if (debugMode) Debug.Log("[MonetizationManager] OnUnityAdsShowFailure: " + placementId + " | " + error.ToString() + " | " + message);
+
+        if(placementId == rewardedID)
+            ShowExtraAd(15, true);
+        else if(placementId == interstitialID)
+            ShowExtraAd(3, false);
     }
 
     public void OnUnityAdsShowStart(string placementId)
@@ -117,14 +130,14 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
 
     public void Update()
     {
-        //if (closeImage.fillAmount < 1)
-        //{
-        //    closeImage.fillAmount += Time.deltaTime / timeout;
-        //}
-        //else
-        //{
-        //    closeButton.interactable = true;
-        //}
+        if (closeImage.fillAmount < 1)
+        {
+            closeImage.fillAmount += Time.deltaTime / timeout;
+        }
+        else
+        {
+            closeButton.interactable = true;
+        }
 
         if (giveUserReward == true)
         {
@@ -141,19 +154,17 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
     public void ShowInterstitial()
     {
         if (debugMode) Debug.Log("[MonetizationManager] ShowInterstitial");
+        
         if (Advertisement.IsReady(interstitialID))
         {
             Advertisement.Show(interstitialID, this);
         }
+        
         //Ads extras
-        //else
-        //{
-        //    timeout = 3;
-        //    closeButton.gameObject.SetActive(true);
-        //    closeButton.interactable = false;
-        //    closeImage.fillAmount = 0;
-        //    backfillInterstitial.SetActive(true);
-        //}
+        else
+        {
+            ShowExtraAd(3, false);
+        }
     }
 
     public void ShowRewarded(string rewardType)
@@ -162,26 +173,29 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
         selectedRewardType = rewardType;
 
         if (Advertisement.IsReady(rewardedID))
-        {
             Advertisement.Show(rewardedID, this);
-        }
 
         //Ads extras
-        //else
-        //{
-        //    timeout = 15;
-        //    closeButton.gameObject.SetActive(true);
-        //    closeButton.interactable = false;
-        //    closeImage.fillAmount = 0;
-        //    backfillRewarded.SetActive(true);
-        //    Invoke("RewardUser", timeout);
-        //}
+        else
+            ShowExtraAd(15, true);
+    }
+
+    private void ShowExtraAd(int Timeout, bool isRewarded)
+    {
+        timeout = Timeout;
+        closeButton.gameObject.SetActive(true);
+        closeButton.interactable = false;
+        closeImage.fillAmount = 0;
+        backfillRewarded.SetActive(true);
+        
+        if(isRewarded)
+            IsRewardedExtraAd = true;
     }
 
     private void RewardUser()
     {
         if (debugMode) Debug.Log("[MonetizationManager] RewardUser:" + selectedRewardType.ToString());
-
+        
         switch (selectedRewardType)
         {
             case "Reborn":
@@ -194,6 +208,19 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
                 break;
             default:
                 break;
+        }
+    }
+
+    public void CloseExtraAds()
+    {
+        closeButton.gameObject.SetActive(false);
+        backfillInterstitial.SetActive(false);
+        backfillRewarded.SetActive(false);
+
+        if(IsRewardedExtraAd)
+        {
+            RewardUser();
+            IsRewardedExtraAd = false;
         }
     }
 }

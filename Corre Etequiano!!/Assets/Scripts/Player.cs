@@ -71,6 +71,18 @@ public class Player : MonoBehaviour
         {
             ShotAlcohol();
         }
+
+        //Pausar anim do player
+        if(GameController.instance.IsPaused == true)
+        {
+            RB.simulated = false;
+            anim.speed = 0;
+        }
+        else
+        {
+            RB.simulated = true;
+            anim.speed = 1;
+        }
     }
 
     public void Jump()
@@ -169,10 +181,10 @@ public class Player : MonoBehaviour
         int CountForAd = PlayerPrefs.GetInt("CountForAd", 0) + 1;
         PlayerPrefs.SetInt("CountForAd", CountForAd);
 
-        if(CountForAd == GameController.instance.MatchesForAd)
+        if(CountForAd >= GameController.instance.MatchesForAd)
         {
             PlayerPrefs.SetInt("CountForAd", 0);
-            gameScreens.WatchAd();
+            gameScreens.WatchAdInterstitial();
         }
 
         //Som de morrer

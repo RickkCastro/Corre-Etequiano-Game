@@ -56,6 +56,17 @@ public class SelectSkin : MonoBehaviour
 
 	public void GoToGame() //Ir para o jogo
     {
+		//Resetar valores
+        try //tentar achar objeto
+        {
+            BDManager.instace.ReniciarBd();
+        }
+        catch
+        { //Criar caso n ache
+            BDManager bdManager = Instantiate(Resources.Load<GameObject>("DontDestroy/BDManager").GetComponent<BDManager>());
+            bdManager.ReniciarBd();
+        }
+		
         StartCoroutine(GoToGameLoad());
     }
 

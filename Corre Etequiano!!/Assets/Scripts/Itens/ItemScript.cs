@@ -17,8 +17,11 @@ public class ItemScript : MonoBehaviour
         transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Item anda para a esquerda
     }
 
-    private void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Destroy(gameObject, 15f); //Destruir objeto
+        if(other.tag == "finishLine")
+        {
+            Destroy(gameObject);
+        }
     }
 }

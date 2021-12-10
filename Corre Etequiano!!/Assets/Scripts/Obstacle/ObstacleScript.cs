@@ -17,16 +17,16 @@ public class ObstacleScript : MonoBehaviour
         transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Obstaculo anda para a esquerda
     }
 
-    private void Start()
-    {
-        Destroy(gameObject, 15f); //Destruir objeto
-    }
-
     private void OnTriggerEnter2D(Collider2D collision) //Colisoes
     {
         if (collision.gameObject.CompareTag("Obstacle")) //Se um obstaculo colidir com outro obstaculo, destruir um
         {
             Destroy(collision.gameObject);
+        }
+
+        if(collision.tag == "finishLine")
+        {
+            Destroy(gameObject);
         }
     }
 }

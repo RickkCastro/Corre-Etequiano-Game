@@ -44,11 +44,14 @@ public class ItemGenerator : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); //Esperar um segundo
 
-            if (MaxGenerationTime > MinGenerationTime + MargemTime) //Se o tempo max for maior q o tempo min + margem de tempo
+            if(GameController.instance.IsPaused == false)
             {
-                MaxGenerationTime -= DecreaseGenerationTime; //Diminuir tempo maximo
+                if (MaxGenerationTime > MinGenerationTime + MargemTime) //Se o tempo max for maior q o tempo min + margem de tempo
+                {
+                    MaxGenerationTime -= DecreaseGenerationTime; //Diminuir tempo maximo
 
-                PlayerPrefs.SetFloat("MaxGTimeItem", MaxGenerationTime);
+                    PlayerPrefs.SetFloat("MaxGTimeItem", MaxGenerationTime);
+                }
             }
         }
     }
@@ -67,22 +70,25 @@ public class ItemGenerator : MonoBehaviour
 
             //Debug.Log(RandomRarity);
 
-            bool gerarItem = false; //Se algum item vai ser gerado ou nn
-            for (int i = 0; i < ItemsList.Count; i++) //Passar por todos os itens para ver se algum tem a raridade certa para aparecer
+            if(GameController.instance.IsPaused == false)
             {
-                if (ItemsList[i].raridade >= RandomRarity) //Se tiver a raridade
+                bool gerarItem = false; //Se algum item vai ser gerado ou nn
+                for (int i = 0; i < ItemsList.Count; i++) //Passar por todos os itens para ver se algum tem a raridade certa para aparecer
                 {
-                    CurrentItem = ItemsList[i].ItemGO; //Pegar item
-                    InsPosition = new Vector2(transform.position.x, ItemsList[i].PositionY); //Posicao
-                    gerarItem = true; //Ativar geracao
+                    if (ItemsList[i].raridade >= RandomRarity) //Se tiver a raridade
+                    {
+                        CurrentItem = ItemsList[i].ItemGO; //Pegar item
+                        InsPosition = new Vector2(transform.position.x, ItemsList[i].PositionY); //Posicao
+                        gerarItem = true; //Ativar geracao
+                    }
                 }
-            }
 
-            if (gerarItem)
-            {
-                GameObject Ins = Instantiate(CurrentItem, InsPosition, transform.rotation); //criar item
-                Ins.transform.parent = this.transform;
-                yield return new WaitForSeconds(MargemTime); //Delay para aparecer outro
+                if (gerarItem)
+                {
+                    GameObject Ins = Instantiate(CurrentItem, InsPosition, transform.rotation); //criar item
+                    Ins.transform.parent = this.transform;
+                    yield return new WaitForSeconds(MargemTime); //Delay para aparecer outro
+                }
             }
         }
     }
