@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3433267322869674509}
   - component: {fileID: 1400612995678919559}
   - component: {fileID: 2831409469954668148}
+  - component: {fileID: 4659442002294219251}
   m_Layer: 0
   m_Name: Covid-19-Medio
   m_TagString: Obstacle
@@ -256,3 +257,16 @@ CircleCollider2D:
   m_Offset: {x: 0.007, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
+--- !u!114 &4659442002294219251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355622358575189132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341f852c5e919914daf03b5b673b6e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mute: 0

@@ -21,11 +21,6 @@ public class Player : MonoBehaviour
     public AudioClip sDeath;
     public AudioClip sAlcoholShot;
 
-    public Player(AudioClip sAlcoholShot)
-    {
-        this.sAlcoholShot = sAlcoholShot;
-    }
-
     //Privados
     private bool isGrounded = false; //Se o player esta tocando no chao
     private Rigidbody2D RB; //Rigdbody
@@ -38,18 +33,9 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>(); //Pegar ridgbody
         anim = GetComponent<Animator>(); //Pegar animator
 
-        char[] PlayerIdChar = PlayerPrefs.GetString("PlayerId", "M1").ToCharArray();
-        string Genre = PlayerIdChar[0].ToString();
-        int PlayerIdAnim = int.Parse(PlayerIdChar[1].ToString());
-
-        if (Genre == "M")
-            anim.SetInteger("Genre", 0);
-        else
-            anim.SetInteger("Genre", 1);
-
-        anim.SetInteger("PlayerID", PlayerIdAnim);
-
         hand = transform.GetChild(0); //Pegar mao
+        VaccineShield = GameObject.FindGameObjectWithTag("VaccineShield");
+        VaccineShield.SetActive(false);
 
         //Pegar variaveis certas
         Life = PlayerPrefs.GetInt("PlayerLife", 3);
@@ -89,12 +75,12 @@ public class Player : MonoBehaviour
     {
         if (isGrounded) //se o player estiver no chao
         {
-            isGrounded = false;
-            RB.AddForce(Vector2.up * JumpForce); //pulo
-
             //Som de pulo
             GetComponent<AudioSource>().clip = sJump;
             GetComponent<AudioSource>().Play();
+
+            isGrounded = false;
+            RB.AddForce(Vector2.up * JumpForce); //pulo
         }
     }
 
@@ -102,15 +88,15 @@ public class Player : MonoBehaviour
     {
         if (AlcoholAmmu > 0) //Se a municao n for 0
         {
+            //Som do tiro
+            GetComponent<AudioSource>().clip = sAlcoholShot;
+            GetComponent<AudioSource>().Play();
+
             GameObject ins = Instantiate(Alcohol, hand.position, hand.rotation); //criar tiro
             AlcoholAmmu--; //Diminuir municao
             PlayerPrefs.SetInt("PlayerAlcohol", AlcoholAmmu);
 
             GameUI.instance.UpdateAlcohol(AlcoholAmmu); //Atualizar imagem do alcohol
-
-            //Som do tiro
-            GetComponent<AudioSource>().clip = sAlcoholShot;
-            GetComponent<AudioSource>().Play();
         }
     }
 
@@ -120,14 +106,14 @@ public class Player : MonoBehaviour
         {
             if (!immortal) //Se nao for imortal
             {
+                //Som de dano
+                GetComponent<AudioSource>().clip = sDamage;
+                GetComponent<AudioSource>().Play();
+
                 Life--; //Diminuir vida
                 PlayerPrefs.SetInt("PlayerLife", Life);
                 GameUI.instance.UpdateLife(Life); //Atualizar imagem das mascaras
                 StartCoroutine(DamageAnim()); //Anim de dano
-
-                //Som de dano
-                GetComponent<AudioSource>().clip = sDamage;
-                GetComponent<AudioSource>().Play();
 
                 if (Life < 1) //Caso a vida seja menor q 1
                 {
@@ -167,6 +153,12 @@ public class Player : MonoBehaviour
 
     private void Death() //Morrer
     {
+        //Som de morrer
+        GetComponent<AudioSource>().clip = sDeath;
+        GetComponent<AudioSource>().Play();
+
+        GameController.instance.IsDeath = true;
+
         try
         {
             GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0;
@@ -187,10 +179,6 @@ public class Player : MonoBehaviour
             gameScreens.WatchAdInterstitial();
         }
 
-        //Som de morrer
-        GetComponent<AudioSource>().clip = sDeath;
-        GetComponent<AudioSource>().Play();
-
         //Chama tela de morte
         gameScreens.CallDeathScreen();
     }
@@ -198,6 +186,10 @@ public class Player : MonoBehaviour
     private void ItemEffect(string ItemType) //Efeitos dos itens
     {
         //Debug.Log(ItemType);
+
+        //Som de pegar item
+        GetComponent<AudioSource>().clip = sItem;
+        GetComponent<AudioSource>().Play();
 
         if(ItemType == "LifeMask") //Mascara
         {
@@ -224,9 +216,5 @@ public class Player : MonoBehaviour
             VaccineShield.SetActive(true); //Ativa escudo
             VaccineShield.GetComponent<VaccineShieldScript>().ActivateShield(); //Chama script do escudo
         }
-
-        //Som de pegar item
-        GetComponent<AudioSource>().clip = sItem;
-        GetComponent<AudioSource>().Play();
     }
 }

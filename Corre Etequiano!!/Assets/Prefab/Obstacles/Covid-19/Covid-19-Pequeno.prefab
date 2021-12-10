@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1079479422420772327}
   - component: {fileID: 4431357087064495385}
   - component: {fileID: 6267445281973284732}
+  - component: {fileID: -7211672861911170703}
   m_Layer: 0
   m_Name: Covid-19-Pequeno
   m_TagString: Obstacle
@@ -256,3 +257,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.07
+--- !u!114 &-7211672861911170703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9006255095227182543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341f852c5e919914daf03b5b673b6e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mute: 0

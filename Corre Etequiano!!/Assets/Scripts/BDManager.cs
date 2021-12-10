@@ -18,7 +18,7 @@ public class BDManager : MonoBehaviour
     }
     public void ReniciarBd() //Apagar tudo
     {
-        string PlayerId = PlayerPrefs.GetString("PlayerId");
+        string PlayerName = PlayerPrefs.GetString("PlayerName");
         int IsMobile = PlayerPrefs.GetInt("IsMobile");
         int BestTime = PlayerPrefs.GetInt("BestTime");
         int CountForAd = PlayerPrefs.GetInt("CountForAd");
@@ -28,7 +28,7 @@ public class BDManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
 
         //Guardar variaveis q nao devem reiniciar
-        PlayerPrefs.SetString("PlayerId", PlayerId);
+        PlayerPrefs.SetString("PlayerName", PlayerName);
         PlayerPrefs.SetInt("BestTime", BestTime);
         PlayerPrefs.SetInt("IsMobile", IsMobile);
         PlayerPrefs.SetInt("CountForAd", CountForAd);

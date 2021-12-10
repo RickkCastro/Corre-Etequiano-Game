@@ -18,7 +18,6 @@ public class ScenaryChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player"); //pegar objeto do player
         StartCoroutine(Change()); //Comecar troca
     }
 
@@ -39,6 +38,7 @@ public class ScenaryChange : MonoBehaviour
 
         FadeOut.SetActive(true); //Ativar fade
 
+        player = GameObject.FindGameObjectWithTag("Player"); //pegar objeto do player
         Player playerScript = player.GetComponent<Player>();
         playerScript.immortal = true; //colocar player como imortal
 

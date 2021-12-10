@@ -79,7 +79,9 @@ public class SelectSkin : MonoBehaviour
         GetComponent<AudioSource>().Play();
 
         //Colocar o id do player no bd
-        PlayerPrefs.SetString("PlayerId", "M1");
+		string PlayerName = AvatarsScrollView.GetChild(newSelectedIndex).GetChild(0).name;
+		Debug.Log(PlayerName);
+        PlayerPrefs.SetString("PlayerName", PlayerName);
 
         yield return new WaitForSeconds(0.1f);
         SceneManager.LoadScene("Scenary1"); //Carregar cenario 1

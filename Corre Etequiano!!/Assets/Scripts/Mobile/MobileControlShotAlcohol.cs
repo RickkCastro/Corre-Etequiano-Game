@@ -17,6 +17,7 @@ public class MobileControlShotAlcohol : MonoBehaviour, IPointerClickHandler
     {
         if (PlayerPrefs.GetInt("IsMobile", 1) == 1)
         {
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); //player
             player.ShotAlcohol();
         }
     }

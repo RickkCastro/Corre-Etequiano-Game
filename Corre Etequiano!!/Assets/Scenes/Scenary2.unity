@@ -394,11 +394,6 @@ PrefabInstance:
       objectReference: {fileID: 1107145892}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
---- !u!1 &452526103 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4933657691533425311, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
-  m_PrefabInstance: {fileID: 452526102}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &452526104 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4933657691152500678, guid: 0634b0f353ecb0f42ad04475a0595751, type: 3}
@@ -661,11 +656,11 @@ GameObject:
   - component: {fileID: 1125140865}
   m_Layer: 0
   m_Name: VaccineShield
-  m_TagString: Untagged
+  m_TagString: VaccineShield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1125140865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,7 +1230,7 @@ PrefabInstance:
     - target: {fileID: 1921106505, guid: 370c3c04d4ccdd44c846a5b8dfe31a0e, type: 3}
       propertyPath: DeathScreen
       value: 
-      objectReference: {fileID: 452526103}
+      objectReference: {fileID: 0}
     - target: {fileID: 1921106505, guid: 370c3c04d4ccdd44c846a5b8dfe31a0e, type: 3}
       propertyPath: VaccineShield
       value: 

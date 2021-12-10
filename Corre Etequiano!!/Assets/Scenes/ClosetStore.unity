@@ -355,7 +355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -960, y: 291.59998}
+  m_AnchoredPosition: {x: -1170, y: 291.59998}
   m_SizeDelta: {x: 0, y: 584}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &335726014
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AvatarsScrollView: {fileID: 335726013}
-  ActiveAvatarColor: {r: 0.7176471, g: 0.03529412, b: 0.03529412, a: 0.23137255}
+  ActiveAvatarColor: {r: 0, g: 0, b: 0, a: 0.23137255}
   DefaultAvatarColor: {r: 1, g: 1, b: 1, a: 0}
   TxtName: {fileID: 984574623}
   LoadingScreen: {fileID: 268949333}
@@ -624,16 +624,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SkinsList:
-  - Name: Taylor
-    sprite: {fileID: 21300000, guid: 941f5badd3468de418f0305cbdb5f948, type: 3}
+  - Name: Ana
+    sprite: {fileID: 21300000, guid: 91f454b5d718aff46867c37cb91c42a4, type: 3}
   - Name: Arthur
-    sprite: {fileID: 21300000, guid: fc034361141ec4a4582c8cc78529b269, type: 3}
-  - Name: Roberth
-    sprite: {fileID: 21300000, guid: f270f0a67ed76c34090410b3c9d5a2f0, type: 3}
+    sprite: {fileID: 21300000, guid: f37f230d86761854c9bdb0a66d01e4b5, type: 3}
+  - Name: Brenaki
+    sprite: {fileID: 21300000, guid: 195c8acfb42ec524c8e7b248275d8ca0, type: 3}
+  - Name: Gustavin
+    sprite: {fileID: 21300000, guid: d3ae89557e4ccf14f9b96a9eb919d6e8, type: 3}
+  - Name: Julia
+    sprite: {fileID: 21300000, guid: 9f4ffc2b420ec3545a83645a25e5f0e7, type: 3}
   - Name: Lelis
-    sprite: {fileID: 21300000, guid: a6578deecb82ea446acfa0a2b3964096, type: 3}
-  - Name: Rickk de Cabelo Azul
-    sprite: {fileID: 21300000, guid: 34ea4cfb3813b6b449d4058c2a915a7c, type: 3}
+    sprite: {fileID: 21300000, guid: 68a8d87cbce62a44fa771cf25b23f339, type: 3}
+  - Name: Maria
+    sprite: {fileID: 21300000, guid: d83f7dc84970cff458a0effcebe138d2, type: 3}
+  - Name: Max
+    sprite: {fileID: 21300000, guid: 12eacb52e40535d4083fc06a8e197973, type: 3}
+  - Name: Rai
+    sprite: {fileID: 21300000, guid: 7a46dc1cafbc3c6438dd998559af4ab2, type: 3}
+  - Name: Ricardinho
+    sprite: {fileID: 21300000, guid: 59eee95602abb2745bc6c3e053c8aa7a, type: 3}
+  - Name: Rickk Cabelo Azul
+    sprite: {fileID: 21300000, guid: c5afe452c78c0f64cb4c292dad41a240, type: 3}
+  - Name: Rickk Cabelo Verde
+    sprite: {fileID: 21300000, guid: 125757eae9b8f704f966dfd04955928a, type: 3}
+  - Name: Roberth
+    sprite: {fileID: 21300000, guid: d9793bd11212d8f4eb33ecbdb6a85f72, type: 3}
+  - Name: Taylor
+    sprite: {fileID: 21300000, guid: 69576832902c6e049ae474d7e37fe28a, type: 3}
   SkinsScrollView: {fileID: 335726013}
 --- !u!4 &653850382
 Transform:
@@ -915,7 +933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7176471, g: 0.03529412, b: 0.03529412, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1410,7 +1428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 941f5badd3468de418f0305cbdb5f948, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59eee95602abb2745bc6c3e053c8aa7a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

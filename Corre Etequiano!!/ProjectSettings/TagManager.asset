@@ -15,6 +15,7 @@ TagManager:
   - DontDestroyOnLoad
   - TxtBestTime
   - TxtCurrentTime
+  - VaccineShield
   layers:
   - Default
   - TransparentFX

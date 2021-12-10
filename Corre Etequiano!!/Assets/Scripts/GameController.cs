@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using System;
 
 public class GameController : MonoBehaviour
@@ -20,8 +18,8 @@ public class GameController : MonoBehaviour
     public float CurrentSpeed; //Velocidade atual do jogo
 
     public static GameController instance;
-    private bool PauseScreenOn;
     public bool IsPaused; 
+    public bool IsDeath; //Player morto
 
     private void Awake()
     {
@@ -34,8 +32,23 @@ public class GameController : MonoBehaviour
         BestTime = PlayerPrefs.GetInt("BestTime", GameTime); //Pegar melhor tempo
         CurrentSpeed = PlayerPrefs.GetFloat("CurrentSpeed", MinSpeed); //Colocar a velocidade atual como minima no comeco
 
+        SpawnPlaye();
+
         StartCoroutine(Timer()); //Comecar timer
         StartCoroutine(Every1Second()); //AumentarVelocidade
+    }
+
+    private void SpawnPlaye()
+    {
+        String PlayerName = PlayerPrefs.GetString("PlayerName", "Taylor");
+        GameObject PlayerTemplate = GameObject.FindGameObjectWithTag("Player");
+
+        GameObject p = Instantiate(Resources.Load<GameObject>("Skins/" + PlayerName), PlayerTemplate.transform);
+        p.transform.parent = PlayerTemplate.transform.parent;
+        p.transform.position = PlayerTemplate.transform.position;
+        p.transform.localScale = PlayerTemplate.transform.localScale;
+
+        Destroy(PlayerTemplate);
     }
 
     private void Update() //A todo momento
@@ -47,17 +60,15 @@ public class GameController : MonoBehaviour
         }
 
         //Pausar e despausar jogo
-        if (Input.GetKeyDown(KeyCode.Escape) && !PauseScreenOn|| Input.GetKeyDown(KeyCode.P) && !PauseScreenOn)
+        if (Input.GetKeyDown(KeyCode.Escape) && !IsPaused && !IsDeath || Input.GetKeyDown(KeyCode.P) && !IsPaused && !IsDeath) 
         {
             GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
             gameScreens.CallPauseScreen();
-            PauseScreenOn = true;
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && PauseScreenOn || Input.GetKeyDown(KeyCode.P) && PauseScreenOn)
+        else if (Input.GetKeyDown(KeyCode.Escape) && IsPaused && !IsDeath || Input.GetKeyDown(KeyCode.P) && IsPaused && !IsDeath)
         {
             GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
             gameScreens.ReturnGame();
-            PauseScreenOn = false;
         }
 
         if(IsPaused)

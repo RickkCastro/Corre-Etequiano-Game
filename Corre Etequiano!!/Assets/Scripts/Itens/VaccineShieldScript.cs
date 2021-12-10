@@ -12,9 +12,9 @@ public class VaccineShieldScript : MonoBehaviour
 
     public GameObject TxtShieldTime; //texto de tempo do escudo
 
-    private void Awake()
+    private void OnEnable()
     {
-        ShieldHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1); //Pegar mao do escudo
+        ShieldHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1); //Pegar mao do escudo   
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
@@ -38,6 +38,8 @@ public class VaccineShieldScript : MonoBehaviour
 
     public IEnumerator ShieldDuration()
     {
+        ShieldHand = GameObject.FindGameObjectWithTag("Player").transform.GetChild(1);
+
         float time = DurantionTime; //Tempo = a tempo de duracao
         bool Activate = true; //Escudo esta ativado
 

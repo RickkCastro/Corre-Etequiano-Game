@@ -13,10 +13,10 @@ UnlockSky Obstacle = PlayerPrefs.GetInt("UnlockSkyObstacles", UnlockSky);
 
 vida = PlayerPrefs.GetInt("PlayerLife", Life);
 alcool = PlayerPrefs.GetInt("PlayerAlcohol", 3);
-IdPlayer (Skin) = PlayerPrefs.GetString("PlayerId", "M1")
+Nome da Skin = PlayerPrefs.GetString("PlayerName", PlayerName);
 
-Checagem se é mobile = PlayerPrefs.GetInt("IsMobile", 0);
-Checagem se já foi o tutorial = PlayerPrefs.GetInt("TutorialOff", 0);
+Checagem se ï¿½ mobile = PlayerPrefs.GetInt("IsMobile", 0);
+Checagem se jï¿½ foi o tutorial = PlayerPrefs.GetInt("TutorialOff", 0);
 Checagem de renascimento = PlayerPrefs.GetInt("Reborn");
 part para rodar anuncio = PlayerPrefs.GetInt("CountForAd", 0);
 

@@ -163,7 +163,7 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
         //Ads extras
         else
         {
-            ShowExtraAd(3, false);
+            ShowExtraAd(5, false);
         }
     }
 
@@ -178,6 +178,8 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
         //Ads extras
         else
             ShowExtraAd(15, true);
+
+        /* ShowExtraAd(15, true); */
     }
 
     private void ShowExtraAd(int Timeout, bool isRewarded)

@@ -30,7 +30,10 @@ public class MobileControlJump : MonoBehaviour, IPointerUpHandler, IPointerDownH
         if (PlayerPrefs.GetInt("IsMobile", 1) == 1)
         {
             if (Holding)
+            {
+                player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>(); //player
                 player.Jump();
+            }
         }
     }
 }

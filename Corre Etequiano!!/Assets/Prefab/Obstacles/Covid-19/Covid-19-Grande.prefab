@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1929463447506357889}
   - component: {fileID: 7446621819250194777}
   - component: {fileID: 6004364839899710366}
+  - component: {fileID: -5049179593763028367}
   m_Layer: 0
   m_Name: Covid-19-Grande
   m_TagString: Obstacle
@@ -256,3 +257,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.122
+--- !u!114 &-5049179593763028367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6280248005972790874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341f852c5e919914daf03b5b673b6e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mute: 0
