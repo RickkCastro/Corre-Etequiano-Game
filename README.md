@@ -28,7 +28,7 @@
     <h3>Estilo artístico:</h3>
     <p>Pixel art.</p>
     <h3>Ambientações:</h3>
-    <p>Na escola Etec Taboão da Serra (inicialmente)</p>
+    <p>Em uma Escola do Brasil(inicialmente)</p>
 </div>
 
 ## Ferramentas 🛠:
