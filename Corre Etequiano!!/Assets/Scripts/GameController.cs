@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(Every1Second()); //AumentarVelocidade
     }
 
-    private void SpawnPlaye()
+    public void SpawnPlaye()
     {
         String PlayerName = PlayerPrefs.GetString("PlayerName", "Taylor");
         GameObject PlayerTemplate = GameObject.FindGameObjectWithTag("Player");

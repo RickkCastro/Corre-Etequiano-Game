@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3443076336296982838}
   - component: {fileID: 3443076336296982833}
-  - component: {fileID: 3443076336296982839}
+  - component: {fileID: 7743647514537864581}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -47,11 +47,13 @@ MonoBehaviour:
   GameTime: 0
   BestTime: 0
   MatchesForAd: 5
-  MinSpeed: 8
+  MinSpeed: 5
   MaxSpeed: 50
   SpeedMultiplier: 0.1
   CurrentSpeed: 30
---- !u!114 &3443076336296982839
+  IsPaused: 0
+  IsDeath: 0
+--- !u!114 &7743647514537864581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,6 +66,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOut: {fileID: 0}
-  NextScenary: Scenary2
-  minRandomTime: 60
-  maxRandomTime: 120
+  minRandomTime: 40
+  maxRandomTime: 80
+  scenarys:
+  - Name: Scenary1
+    Chance: 100
+  - Name: Scenary2
+    Chance: 60
+  - Name: ScenaryBoss
+    Chance: 20
