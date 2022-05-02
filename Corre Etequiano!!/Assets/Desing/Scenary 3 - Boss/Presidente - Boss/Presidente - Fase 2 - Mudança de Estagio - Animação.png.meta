@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: f541f460c09e42a4fae5166b70d31d67
+guid: df2bb35cdba9bd74e9f8c94eb25a7abf
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4157686307627227555
+    second: "Presidente - Fase 2 - Mudan\xE7a de Estagio - Anima\xE7\xE3o_0"
+  - first:
+      213: -8891994813870227827
+    second: "Presidente - Fase 2 - Mudan\xE7a de Estagio - Anima\xE7\xE3o_1"
+  - first:
+      213: 7105474236432815948
+    second: "Presidente - Fase 2 - Mudan\xE7a de Estagio - Anima\xE7\xE3o_2"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +50,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,7 +122,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "Presidente - Fase 2 - Mudan\xE7a de Estagio - Anima\xE7\xE3o_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56af52e45eec46c0800000000000000
+      internalID: -4157686307627227555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Presidente - Fase 2 - Mudan\xE7a de Estagio - Anima\xE7\xE3o_1"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8e36ae14d9499480800000000000000
+      internalID: -8891994813870227827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Presidente - Fase 2 - Mudan\xE7a de Estagio - Anima\xE7\xE3o_2"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47944feb27bb9260800000000000000
+      internalID: 7105474236432815948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

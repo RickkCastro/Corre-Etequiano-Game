@@ -49,7 +49,7 @@ MonoBehaviour:
   MatchesForAd: 5
   MinSpeed: 5
   MaxSpeed: 50
-  SpeedMultiplier: 0.1
+  SpeedMultiplier: 0.08
   CurrentSpeed: 30
   IsPaused: 0
   IsDeath: 0
@@ -66,8 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOut: {fileID: 0}
-  minRandomTime: 40
-  maxRandomTime: 80
+  minRandomTime: 30
+  maxRandomTime: 60
   scenarys:
   - Name: Scenary1
     Chance: 100

@@ -16,6 +16,7 @@ TagManager:
   - TxtBestTime
   - TxtCurrentTime
   - VaccineShield
+  - BossPresidente
   layers:
   - Default
   - TransparentFX

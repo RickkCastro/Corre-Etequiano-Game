@@ -74,9 +74,9 @@ GameObject:
   - component: {fileID: 1344010365168846878}
   - component: {fileID: 1344010365168846879}
   - component: {fileID: 8512048343942889713}
-  - component: {fileID: 5174976275637338415}
   - component: {fileID: 8499796706720179720}
   - component: {fileID: 6167087479567234316}
+  - component: {fileID: 4681068321316245294}
   m_Layer: 0
   m_Name: Taylor
   m_TagString: Player
@@ -310,28 +310,6 @@ MonoBehaviour:
   sDamage: {fileID: 8300000, guid: feb94c15c8a55274d90a797bd5ef890c, type: 3}
   sDeath: {fileID: 8300000, guid: ddc220e6d4799c049a89e12ba0635c1a, type: 3}
   sAlcoholShot: {fileID: 8300000, guid: ff31b88d2f4875e41ad8c8231ae6ddeb, type: 3}
---- !u!114 &5174976275637338415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344010365168846868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681411dbc3dbee44c8fedd59d358af1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeSprites:
-  - {fileID: -7661086728153972554, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
-  - {fileID: -5814105234989186508, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
-  - {fileID: -143557186943174210, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
-  - {fileID: -4318931633005564319, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
-  AlcoholSprites:
-  - {fileID: -1157864152485604944, guid: 3a22e529532b879428e1c664d1c89503, type: 3}
-  - {fileID: 8719392902623797986, guid: 3a22e529532b879428e1c664d1c89503, type: 3}
-  - {fileID: -8140338859531441987, guid: 3a22e529532b879428e1c664d1c89503, type: 3}
-  - {fileID: 8853389499678794366, guid: 3a22e529532b879428e1c664d1c89503, type: 3}
 --- !u!61 &8499796706720179720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -371,3 +349,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mute: 0
+--- !u!114 &4681068321316245294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344010365168846868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681411dbc3dbee44c8fedd59d358af1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeSprites:
+  - {fileID: -7661086728153972554, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
+  - {fileID: -5814105234989186508, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
+  - {fileID: -143557186943174210, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
+  - {fileID: -4318931633005564319, guid: a31e304e71a2b424fad58e0f3666c6bb, type: 3}
+  AlcoholSprites:
+  - {fileID: 8853389499678794366, guid: 3a22e529532b879428e1c664d1c89503, type: 3}
+  - {fileID: 8719392902623797986, guid: 3a22e529532b879428e1c664d1c89503, type: 3}
+  - {fileID: -8140338859531441987, guid: 3a22e529532b879428e1c664d1c89503, type: 3}
+  - {fileID: -1157864152485604944, guid: 3a22e529532b879428e1c664d1c89503, type: 3}

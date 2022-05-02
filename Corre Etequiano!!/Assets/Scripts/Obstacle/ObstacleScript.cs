@@ -14,16 +14,12 @@ public class ObstacleScript : MonoBehaviour
 
     private void Update() //A todo momento
     {
-        transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Obstaculo anda para a esquerda
+        //transform.Translate(Vector2.left * (GameController.instance.CurrentSpeed) * Time.deltaTime); //Obstaculo anda para a esquerda
+        transform.position = new Vector2(transform.position.x - GameController.instance.CurrentSpeed * Time.deltaTime, transform.position.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //Colisoes
     {
-        if (collision.gameObject.CompareTag("Obstacle")) //Se um obstaculo colidir com outro obstaculo, destruir um
-        {
-            Destroy(collision.gameObject);
-        }
-
         if(collision.tag == "finishLine")
         {
             Destroy(gameObject);

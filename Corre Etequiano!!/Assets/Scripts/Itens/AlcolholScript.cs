@@ -6,11 +6,14 @@ public class AlcolholScript : MonoBehaviour
 {
     //Script do tiro de alcool
 
-    public float Speed; //Velocidade do tiro
+    [SerializeField]
+    private float Speed; //Velocidade do tiro
+    [SerializeField]
+    private float damage;
 
     private void Update() //A todo momento
     {
-        transform.Translate(Vector2.right * Speed * Time.deltaTime); //tiro anda para a direita
+        transform.position = new Vector2(transform.position.x + Speed * Time.deltaTime, transform.position.y);
     }
 
     private void Start()
@@ -28,6 +31,12 @@ public class AlcolholScript : MonoBehaviour
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
             }
+        }
+
+        if(collision.tag == "BossPresidente")
+        {
+            collision.GetComponent<PresidenteController>().TakeDamage(damage);
+            Destroy(gameObject);
         }
     }
 }

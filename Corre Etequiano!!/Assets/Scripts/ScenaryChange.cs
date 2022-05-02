@@ -30,8 +30,7 @@ public class ScenaryChange : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RandomizeScenary();
-        StartCoroutine(Change()); //Comecar troca
+        StartCoroutine(ChangeCountdown()); //Comecar troca
     }
 
     private void RandomizeScenary()
@@ -51,7 +50,26 @@ public class ScenaryChange : MonoBehaviour
         }
     }
 
-    private IEnumerator Change()
+    public void Change()
+    {
+        StartCoroutine(ChangeEnumerator());
+    }
+
+    private IEnumerator ChangeEnumerator() //Mudar cenario
+    {
+        RandomizeScenary();
+        FadeOut.SetActive(true); //Ativar fade
+
+        player = GameObject.FindGameObjectWithTag("Player"); //pegar objeto do player
+        Player playerScript = player.GetComponent<Player>();
+        playerScript.immortal = true; //colocar player como imortal
+
+        //trocar cenario
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(NextScenary);
+    }
+
+    private IEnumerator ChangeCountdown() //contagem de tempo aleatorio para mudar cenario
     {
         //esperar tempo aleatorio
         int RandomTime = Random.Range(minRandomTime, maxRandomTime);
@@ -66,14 +84,6 @@ public class ScenaryChange : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        FadeOut.SetActive(true); //Ativar fade
-
-        player = GameObject.FindGameObjectWithTag("Player"); //pegar objeto do player
-        Player playerScript = player.GetComponent<Player>();
-        playerScript.immortal = true; //colocar player como imortal
-
-        //trocar cenario
-        yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(NextScenary);
+        Change();
     }
 }

@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 3cffeaddb79d44545ab4e39db96b4f76
+guid: 10ed4cb35fe7d644f88c5d78cdb7e5ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5606796794002233129
-    second: AlcoholShotBorda_0
+      213: -5147721456855382133
+    second: "Presidente - Fase 1 - Anima\xE7\xE3o_0"
   - first:
-      213: -3486352343513824030
-    second: AlcoholShotBorda_1
+      213: -6490533299228330927
+    second: "Presidente - Fase 1 - Anima\xE7\xE3o_1"
   - first:
-      213: -4918943458657484566
-    second: AlcoholShotBorda_2
+      213: 5692502682247696109
+    second: "Presidente - Fase 1 - Anima\xE7\xE3o_2"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -109,7 +109,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -124,7 +124,49 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlcoholShotBorda_0
+      name: "Presidente - Fase 1 - Anima\xE7\xE3o_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b878a79db9e9f88b0800000000000000
+      internalID: -5147721456855382133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Presidente - Fase 1 - Anima\xE7\xE3o_1"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 154b6a84a5efce5a0800000000000000
+      internalID: -6490533299228330927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Presidente - Fase 1 - Anima\xE7\xE3o_2"
       rect:
         serializedVersion: 2
         x: 0
@@ -138,50 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9275d426af75fcd40800000000000000
-      internalID: 5606796794002233129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlcoholShotBorda_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e4020bd30dfd9fc0800000000000000
-      internalID: -3486352343513824030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AlcoholShotBorda_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae04d7c6cf66cbbb0800000000000000
-      internalID: -4918943458657484566
+      spriteID: dee05528705dffe40800000000000000
+      internalID: 5692502682247696109
       vertices: []
       indices: 
       edges: []
