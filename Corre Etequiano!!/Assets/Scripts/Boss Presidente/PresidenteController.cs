@@ -6,9 +6,8 @@ using UnityEngine.Events;
 
 public class PresidenteController : MonoBehaviour
 {
-    [SerializeField]
-    private float Maxlife;
-    private float life;
+    public float Maxlife;
+    public float life;
 
     [SerializeField]
     private List<Sprite> heartsList;
@@ -19,17 +18,24 @@ public class PresidenteController : MonoBehaviour
 
     [SerializeField]
     private UnityEvent DeathEvent;
+    [SerializeField]
+    private UnityEvent DamageEvent;
+
+    private PresidenteAttacks presidenteAttacks;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         life = Maxlife;
+        presidenteAttacks = GetComponent<PresidenteAttacks>();
     }
 
     public void TakeDamage(float damage)
     {
         life -= damage;
         lifeUIModify();
+        DamageEvent.Invoke();
+
         StartCoroutine(DamageAnim());
 
         if (life <= 0)
@@ -63,6 +69,7 @@ public class PresidenteController : MonoBehaviour
     private void Stage2()
     {
         animator.SetBool("Stage 2", true);
+        presidenteAttacks.currentBullet = presidenteAttacks.bulletStage2;
     }
 
     private void Death()
@@ -73,6 +80,7 @@ public class PresidenteController : MonoBehaviour
 
     private IEnumerator DeathCount(float seconds)
     {
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(seconds);
         DeathEvent.Invoke();
     }

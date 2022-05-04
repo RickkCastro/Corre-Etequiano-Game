@@ -1,22 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PresidenteAttacks : MonoBehaviour
 {
-    [Header("Stage 1")]
     [SerializeField]
     private Transform hand;
+
     [SerializeField]
-    private GameObject bullet;
+    private GameObject bulletStage1;
+    public GameObject bulletStage2;
+    public GameObject currentBullet;
 
     [SerializeField]
     private float minFireTime;
     [SerializeField]
     private float maxFireTime;
+    [SerializeField]
+    private float margemTime;
+    [SerializeField]
+    private float decreaseTime;
 
     [SerializeField]
     private List<FireType> fireTypes;
+
+    private PresidenteController controller;
 
     [System.Serializable]
     public class FireType
@@ -28,10 +37,16 @@ public class PresidenteAttacks : MonoBehaviour
     private float firePositionY;
     private bool chegouPerto;
 
+    [SerializeField]
+    private UnityEvent fireEvent;
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(Fire());
+        StartCoroutine(Every1Second());
+        controller = GetComponent<PresidenteController>();
+        currentBullet = bulletStage1;
     }
 
     private void RamdomizeFireType()
@@ -59,6 +74,22 @@ public class PresidenteAttacks : MonoBehaviour
         }
     }
 
+    IEnumerator Every1Second() //A cada segundo
+    {
+        while (true) //Loop infinito
+        {
+            yield return new WaitForSeconds(1f); //Esperar um segundo
+
+            if (GameController.instance.IsPaused == false)
+            {
+                if (maxFireTime > minFireTime + margemTime) //Se o tempo max for maior q o tempo min + margem de tempo
+                {
+                    maxFireTime -= decreaseTime / controller.life; //Diminuir tempo maximo
+                }
+            }
+        }
+    }
+
     private IEnumerator Fire()
     {
         firePositionY = fireTypes[0].y;
@@ -67,7 +98,8 @@ public class PresidenteAttacks : MonoBehaviour
             float RamdomFireTime = Random.Range(minFireTime, maxFireTime);
             yield return new WaitForSeconds(RamdomFireTime);
 
-            GameObject Ins = Instantiate(bullet, hand.position, transform.rotation); //Criar obstacle
+            fireEvent.Invoke();
+            GameObject Ins = Instantiate(currentBullet, hand.position, transform.rotation); //Criar obstacle
             Ins.transform.parent = this.transform.parent;
 
             RamdomizeFireType();

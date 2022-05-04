@@ -21,11 +21,11 @@ public class ReturnScreen : MonoBehaviour
     IEnumerator countdown()
     {
         CountdownTxt.text = "3";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         CountdownTxt.text = "2";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         CountdownTxt.text = "1";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         GameController.instance.IsPaused = false; //Despausar jogo
         gameObject.SetActive(false);

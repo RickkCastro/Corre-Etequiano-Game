@@ -20,9 +20,6 @@ TextureImporter:
   - first:
       213: 5460526397139647026
     second: Roberth - Run_5
-  - first:
-      213: -2539175515361603056
-    second: Roberth - Run_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +106,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -121,7 +118,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -181,8 +178,8 @@ TextureImporter:
       name: Roberth - Run_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
+        x: 0
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -202,7 +199,7 @@ TextureImporter:
       name: Roberth - Run_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 64
         width: 64
         height: 64
@@ -223,8 +220,8 @@ TextureImporter:
       name: Roberth - Run_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 0
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -244,8 +241,8 @@ TextureImporter:
       name: Roberth - Run_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -257,27 +254,6 @@ TextureImporter:
       bones: []
       spriteID: 23af62cb3dfa7cb40800000000000000
       internalID: 5460526397139647026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Roberth - Run_6
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0129088625903ccd0800000000000000
-      internalID: -2539175515361603056
       vertices: []
       indices: 
       edges: []

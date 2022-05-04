@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b53df240a9b42543b8f48cabcf933d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 15
-  damage: 2
+  Speed: 2
+  damage: 1
 --- !u!50 &5946425872195678718
 Rigidbody2D:
   serializedVersion: 4
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

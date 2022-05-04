@@ -130,15 +130,6 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
 
     public void Update()
     {
-        if (closeImage.fillAmount < 1)
-        {
-            closeImage.fillAmount += Time.deltaTime / timeout;
-        }
-        else
-        {
-            closeButton.interactable = true;
-        }
-
         if (giveUserReward == true)
         {
             giveUserReward = false;
@@ -186,8 +177,6 @@ public class MonetizationManager : MonoBehaviour, IUnityAdsInitializationListene
     {
         timeout = Timeout;
         closeButton.gameObject.SetActive(true);
-        closeButton.interactable = false;
-        closeImage.fillAmount = 0;
         backfillRewarded.SetActive(true);
         
         if(isRewarded)

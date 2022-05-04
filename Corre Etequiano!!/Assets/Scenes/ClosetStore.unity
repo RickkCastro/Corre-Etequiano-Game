@@ -355,7 +355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1170, y: 291.59998}
+  m_AnchoredPosition: {x: -1204, y: 291.59998}
   m_SizeDelta: {x: 0, y: 584}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &335726014
@@ -628,10 +628,16 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 91f454b5d718aff46867c37cb91c42a4, type: 3}
   - Name: Arthur
     sprite: {fileID: 21300000, guid: f37f230d86761854c9bdb0a66d01e4b5, type: 3}
+  - Name: Brenaki Normal
+    sprite: {fileID: 21300000, guid: ded612c7154a3f040b2748aeb9163b32, type: 3}
   - Name: Brenaki
     sprite: {fileID: 21300000, guid: 195c8acfb42ec524c8e7b248275d8ca0, type: 3}
+  - Name: Calvo
+    sprite: {fileID: 6156492274404568389, guid: 1d6132107d0e80247b80c7dfd5d32f16, type: 3}
   - Name: Gustavin
     sprite: {fileID: 21300000, guid: d3ae89557e4ccf14f9b96a9eb919d6e8, type: 3}
+  - Name: Iza
+    sprite: {fileID: 21300000, guid: 551578b8d689b0743a930cded7672dec, type: 3}
   - Name: Julia
     sprite: {fileID: 21300000, guid: 9f4ffc2b420ec3545a83645a25e5f0e7, type: 3}
   - Name: Lelis
@@ -648,6 +654,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: c5afe452c78c0f64cb4c292dad41a240, type: 3}
   - Name: Rickk Cabelo Verde
     sprite: {fileID: 21300000, guid: 125757eae9b8f704f966dfd04955928a, type: 3}
+  - Name: Rickk Normal
+    sprite: {fileID: -7384593999288517763, guid: ab57ebd859a568d4e8776fc92860d34a, type: 3}
   - Name: Roberth
     sprite: {fileID: 21300000, guid: d9793bd11212d8f4eb33ecbdb6a85f72, type: 3}
   - Name: Taylor

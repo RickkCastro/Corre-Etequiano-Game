@@ -72,15 +72,15 @@ public class GameController : MonoBehaviour
             gameScreens.ReturnGame();
         }
 
-        if(IsPaused)
-        {
-            PauseGame();
-        }
+        if (IsPaused)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
     }
 
     private void PauseGame()
     {
-        CurrentSpeed = 0;
+        Time.timeScale = 0;
     }
 
     private void OnApplicationQuit() //Quando o jogo  fechar

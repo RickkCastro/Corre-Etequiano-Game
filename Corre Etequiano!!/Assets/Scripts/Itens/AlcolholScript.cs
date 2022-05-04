@@ -13,12 +13,7 @@ public class AlcolholScript : MonoBehaviour
 
     private void Update() //A todo momento
     {
-        transform.position = new Vector2(transform.position.x + Speed * Time.deltaTime, transform.position.y);
-    }
-
-    private void Start()
-    {
-        Destroy(gameObject, 5f); //Destruir tiro apos 5s
+        transform.position = new Vector2(transform.position.x + Speed * GameController.instance.CurrentSpeed * Time.deltaTime, transform.position.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

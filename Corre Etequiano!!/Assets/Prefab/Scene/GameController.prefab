@@ -47,8 +47,8 @@ MonoBehaviour:
   GameTime: 0
   BestTime: 0
   MatchesForAd: 5
-  MinSpeed: 5
-  MaxSpeed: 50
+  MinSpeed: 7
+  MaxSpeed: 45
   SpeedMultiplier: 0.08
   CurrentSpeed: 30
   IsPaused: 0

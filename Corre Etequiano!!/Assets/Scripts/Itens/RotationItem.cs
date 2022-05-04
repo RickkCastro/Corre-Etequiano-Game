@@ -9,13 +9,6 @@ public class RotationItem : MonoBehaviour
     [SerializeField]
     private bool negativeRotation;
 
-    private Rigidbody2D rb;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
     // Update is called once per frame
     void Update()
     {

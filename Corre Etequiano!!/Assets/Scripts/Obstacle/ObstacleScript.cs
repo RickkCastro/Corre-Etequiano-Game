@@ -8,7 +8,7 @@ public class ObstacleScript : MonoBehaviour
 
     //Tipo de obstaculo
     [HideInInspector]
-    public List<string> ObstacleTypeList = new List<string> { "Common", "Sky", "Enemy" };
+    public List<string> ObstacleTypeList = new List<string> { "Common", "Sky", "Enemy", "BossAtack" };
     [Dropdown("ObstacleTypeList")]//input the path of the list
     public string ObstacleType;
 
@@ -24,5 +24,14 @@ public class ObstacleScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.tag == "Obstacle" && ObstacleType == "BossAtack")
+            Destroy(collision.gameObject);
+
+        //if(collision.tag == "Alcohol" && ObstacleType == "BossAtack")
+        //{
+        //    Destroy(gameObject);
+        //    Destroy(collision.gameObject);
+        //}
     }
 }

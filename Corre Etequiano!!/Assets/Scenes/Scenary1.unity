@@ -1316,42 +1316,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstaclesList:
-  - Name: Bush 01
+  - Name: Bush 1
     raridade: 100
     PositionY: -3.679977
     ObstacleGO: {fileID: 8082716343654988547, guid: 1983e196b23a9854cba89aa415e11e5b, type: 3}
-  - Name: Bush 02
+  - Name: Bush 2
     raridade: 80
     PositionY: -3.679977
     ObstacleGO: {fileID: 5430633589009570102, guid: 56d875a08930459409c444668519d5a5, type: 3}
-  - Name: Bench 01
+  - Name: Bench 1
     raridade: 60
-    PositionY: -3.198712
+    PositionY: -3.107902
     ObstacleGO: {fileID: 662393528450118360, guid: 8c16ce8954712464b8dcea7918b15a37, type: 3}
-  - Name: Bench 02
+  - Name: Bench 2
     raridade: 40
-    PositionY: -3.198712
+    PositionY: -3.107902
     ObstacleGO: {fileID: 5660090051858857268, guid: 77fca91a8437b58439a80925941d9f86, type: 3}
-  - Name: Bird 01
+  - Name: Bird 1
     raridade: 25
     PositionY: -1
     ObstacleGO: {fileID: 4789098537550854366, guid: e1be50487d4467c4e8ed5ae4394bebd7, type: 3}
-  - Name: Bird 02
+  - Name: Bird 2
     raridade: 15
     PositionY: -1
     ObstacleGO: {fileID: 7332546955126189647, guid: 0a715468e9b80f94eb869c439e2acdb9, type: 3}
-  - Name: Bird 03
+  - Name: Bird 3
     raridade: 5
     PositionY: -1
     ObstacleGO: {fileID: 7784448765171853224, guid: d8041de3cb9f7024b8f054e1be0981ce, type: 3}
-  - Name: Bird 04
+  - Name: Bird 4
     raridade: 0.5
     PositionY: -1
     ObstacleGO: {fileID: 3681339683040109828, guid: 5852afa09571e8341b787e9e675c592c, type: 3}
   UnlockSky: 5
   IsEnemyGenerator: 0
-  MinGenerationTime: 1
-  MaxGenerationTime: 6
+  MinGenerationTime: 1.3
+  MaxGenerationTime: 5
   DecreaseGenerationTime: 0.025
   MargemTime: 0.5
   InicialDelay: 5
