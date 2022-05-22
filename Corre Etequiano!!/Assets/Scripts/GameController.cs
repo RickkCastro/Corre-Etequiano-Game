@@ -78,10 +78,6 @@ public class GameController : MonoBehaviour
             Time.timeScale = 1;
     }
 
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
 
     private void OnApplicationQuit() //Quando o jogo  fechar
     {

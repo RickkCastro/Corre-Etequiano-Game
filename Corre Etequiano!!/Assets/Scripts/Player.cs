@@ -86,17 +86,22 @@ public class Player : MonoBehaviour
 
     public void ShotAlcohol()
     {
-        if (AlcoholAmmu > 0) //Se a municao n for 0
+        if (AlcoholAmmu > 0 ) //Se a municao n for 0
         {
             //Som do tiro
             GetComponent<AudioSource>().clip = sAlcoholShot;
             GetComponent<AudioSource>().Play();
 
             GameObject ins = Instantiate(Alcohol, hand.position, hand.rotation); //criar tiro
-            AlcoholAmmu--; //Diminuir municao
-            PlayerPrefs.SetInt("PlayerAlcohol", AlcoholAmmu);
+            ins.transform.parent = this.transform;
 
-            GameUI.instance.UpdateAlcohol(AlcoholAmmu); //Atualizar imagem do alcohol
+            if (!immortal)
+            {
+                AlcoholAmmu--; //Diminuir municao
+                PlayerPrefs.SetInt("PlayerAlcohol", AlcoholAmmu);
+
+                GameUI.instance.UpdateAlcohol(AlcoholAmmu); //Atualizar imagem do alcohol
+            }
         }
     }
 

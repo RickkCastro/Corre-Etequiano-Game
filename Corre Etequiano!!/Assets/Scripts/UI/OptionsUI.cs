@@ -19,9 +19,13 @@ public class OptionsUI : MonoBehaviour
 
     public void ChangeScene(string scene)
     {
+        
         audioSource.Play();
 
-        if(scene != SceneManager.GetActiveScene().name)
+        if(FindObjectOfType<GameController>() != null)
+            GameController.instance.IsPaused = false;
+
+        if (scene != SceneManager.GetActiveScene().name)
         {
             if(scene == "Menu")
             {
