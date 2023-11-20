@@ -175,15 +175,6 @@ public class Player : MonoBehaviour
 
         GameScreens gameScreens = GameObject.Find("CanvasGame").GetComponent<GameScreens>();
 
-        int CountForAd = PlayerPrefs.GetInt("CountForAd", 0) + 1;
-        PlayerPrefs.SetInt("CountForAd", CountForAd);
-
-        if(CountForAd >= GameController.instance.MatchesForAd)
-        {
-            PlayerPrefs.SetInt("CountForAd", 0);
-            gameScreens.WatchAdInterstitial();
-        }
-
         //Chama tela de morte
         gameScreens.CallDeathScreen();
     }

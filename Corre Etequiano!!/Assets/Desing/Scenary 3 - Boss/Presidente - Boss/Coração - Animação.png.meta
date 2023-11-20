@@ -42,7 +42,7 @@ TextureImporter:
       213: -7621135449136012730
     second: "Cora\xE7\xE3o - Anima\xE7\xE3o_12"
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -101,6 +102,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -140,6 +142,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -436,6 +450,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_0": -1625714043647224943
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_1": 471697008806431839
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_10": -1107154747740514952
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_11": -2554923528180530009
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_12": -7621135449136012730
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_2": 5685985343295641495
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_3": -8255816176559251764
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_4": -540738824349312678
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_5": -8047554424754227421
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_6": -4648284035833627449
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_7": -6788016667406487657
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_8": -1062536014955002307
+      "Cora\xE7\xE3o - Anima\xE7\xE3o_9": 2900357182536874751
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

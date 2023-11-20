@@ -53,15 +53,8 @@ public class GameScreens : MonoBehaviour
 
     public void CallDeathScreen()
     {
-        if(PlayerPrefs.GetInt("Reborn", 0) == 1)
-        {
-            AdPanel.SetActive(false);
-            DeathScreen.SetActive(true);
-            GetInfos();
-        }
-        else{
-            AdPanel.SetActive(true);
-        }
+        DeathScreen.SetActive(true);
+        GetInfos();
 
         GameController.instance.IsPaused = true; //Pausar jogo
     }
@@ -95,85 +88,5 @@ public class GameScreens : MonoBehaviour
         //Som
         GetComponent<AudioSource>().clip = sPauseOut;
         GetComponent<AudioSource>().Play();
-    }
-
-
-    //Ads
-    public void Reborn() //Renascer
-    {
-        PlayerPrefs.SetInt("Reborn", 1);
-
-        LoadingScreen.SetActive(false);
-        AdPanel.SetActive(false);
-        DeathScreen.SetActive(false);
-        GameObject.Find("ControlMusic").GetComponent<MusicScript>().BGM.volume = 0.5f;
-
-        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        player.Life = 3;
-        PlayerPrefs.SetInt("PlayerLife", player.Life);
-        GameUI.instance.UpdateLife(player.Life);
-        GameUI.instance.UpdateAlcohol(player.AlcoholAmmu);
-
-        GetComponent<AudioSource>().clip = sPauseIn;
-        GetComponent<AudioSource>().Play();
-
-        ReturnScreen.SetActive(true);
-    }
-
-    public void BtCloseNoAd()
-    {
-        //Som
-        GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
-        GetComponent<AudioSource>().Play(); //Executar audio de click
-
-        AdPanel.SetActive(false);
-        DeathScreen.SetActive(true);
-        GetInfos();
-    }
-
-    public void WatchAd()
-    {
-        if(MonetizationManager.Instance.AdsOff == false) //se os ads n estiverem desativados 
-        {
-            //som
-            GetComponent<AudioSource>().clip = sButtons; //Colocar audio de click
-            GetComponent<AudioSource>().Play(); //Executar audio de click
-
-            LoadingScreen.SetActive(true);
-
-            try //tentar achar objeto
-            {
-                MonetizationManager.Instance.ShowRewarded("Reborn");
-            }
-            catch
-            { //Criar caso n ache
-                MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
-                monetizationManager.ShowRewarded("Reborn");
-            }
-        }
-        else
-        {
-            Reborn();
-        }
-    }
-
-    public void WatchAdInterstitial()
-    {
-        if(MonetizationManager.Instance.AdsOff == false)
-        {
-            LoadingScreen.SetActive(true);
-
-            try //tentar achar objeto
-            {
-                MonetizationManager.Instance.ShowInterstitial();
-            }
-            catch
-            { //Criar caso n ache
-                MonetizationManager monetizationManager = Instantiate(Resources.Load<GameObject>("DontDestroy/MonetizationManager").GetComponent<MonetizationManager>());
-                MonetizationManager.Instance.ShowInterstitial();
-            }
-
-            LoadingScreen.SetActive(false);
-        }
     }
 }
